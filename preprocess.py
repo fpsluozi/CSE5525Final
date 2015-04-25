@@ -6,6 +6,7 @@ def train_preprocess():
 	#trainingText = trainingText.encode('UTF-8')
 	segments = []
 	trainData = []
+	cSet = set()
 	for line in trainingText:
 		lines.append(line.decode('utf-8'))
 		#print line.decode('utf-8')
@@ -22,10 +23,11 @@ def train_preprocess():
 				segment.append(0)
 			start = False
 			trainLine.append(character)
+			cSet.add(character)
 		segments.append(segment)
 		trainData.append(trainLine)
-
-	return trainData, segments
+		
+	return trainData, segments, cSet
 def test_preprocess():
 	lines = []
 	f2 = open('as_test.utf8', 'r')
