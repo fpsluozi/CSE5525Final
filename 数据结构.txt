@@ -1,0 +1,20 @@
+﻿第一步：
+List<List<Charcter>>>
+Charcter：
+{
+    character,
+    tag,
+}
+ 
+第二步
+建立一个三维数组，保存所有 lambda的值。
+
+probTable[S_(t-1)][S_t][O_t]
+S_t取值 0， 1
+O_t取值 character的总数
+
+所以还要建一个map 把 character 映射成数字， 最好在第一步做好。
+
+
+
+
