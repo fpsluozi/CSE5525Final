@@ -1,0 +1,76 @@
+\documentclass[11pt]{article}
+%\usepackage{fullpage}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{graphicx}
+\usepackage{caption}
+\textheight=8.5in
+\topmargin=0in
+\headheight=0in
+\headsep=0in
+\oddsidemargin=0in
+\evensidemargin=0in
+\textwidth=6in
+\linespread{1.2}
+\title {\vspace*{-2em}Final Exam}
+\author{Dingkang Wang}
+\date {\today}
+
+\begin{document}
+
+\maketitle
+
+\begin{equation}
+    P(\mathbf{s}|\mathbf{o}) = \frac{1}{Z_{\mathbf{s}}} \exp \left( \sum_{t=1}^{T} \sum_{k} \lambda_k f_k(s_{t-1}, s_t, o_t) \right)
+\end{equation}
+\\
+
+\begin{equation}
+    Z_{\mathbf{s}} = \sum_{\mathbf{s}} \exp \left( \sum_{t=1}^{T} \sum_{k} \lambda_k f_k(s_{t-1}, s_t, o_t) \right)
+\end{equation}
+\\    
+
+\begin{equation}
+    L = \sum_{n=1}^{N} \log P( \mathbf{s}^{(n)} | \mathbf{o}^{(n)}) - \sum_{k} \frac{\lambda_k^2}{2\sigma}
+\end{equation}
+\\
+
+\begin{equation}
+    \frac{\partial L}{\partial \lambda_k} = \sum_{n=1}^{N} \left( F_k ( \mathbf{s}^{(n)}, \mathbf{o}^{(n)} ) - \sum_{\mathbf{s}} P( \mathbf{s} | \mathbf{o}^{(n)}) F_k ( \mathbf{s}, \mathbf{o}^{(n)} ) \right)
+\end{equation}
+\\
+
+\begin{equation}
+    \sum_{\mathbf{s}} P( \mathbf{s} | \mathbf{o}^{(n)}) F_k ( \mathbf{s}, \mathbf{o}^{(n)} ) = E_{p(\mathbf{s}|\mathbf{o}^{(n)})} [ F_k(\mathbf{s}, \mathbf{o}^{(n)}) ]
+\end{equation}
+\\
+
+\begin{equation}
+     E_{p(\mathbf{s}|\mathbf{o}^{(n)})} [ F_k(\mathbf{s}, \mathbf{o}^{(n)}) ] = \frac{\sum_{t=1}^{T} \sum_{s_{t-1}, s_t} \alpha(t-1, s_{t-1}) f_k(s_{t-1}, s_{t}, o^{(n)}_t) \exp^{\lambda_k f_k(s_{t-1}, s_{t}, o^{(n)}_t)} \beta(t, s_t)}{Z_{\mathbf{s}}}
+\end{equation}
+\\
+
+\begin{equation}
+     Z_{\mathbf{s}} = \beta(1, 0) + \beta(1, 1) = \alpha(N, 0) + \alpha(N, 1)
+\end{equation}
+\\
+
+\begin{equation}
+V(t, s) = \left\{ \begin{array}{lc}
+\max_{s'}( V(t-1, s') \exp \left( \sum_k \lambda_k f_k(s', s, \mathbf{o}_t) \right) ) & i>1 \\
+s==1 & i=1
+\end{array} \right.
+\end{equation}
+\\
+
+\begin{equation}
+    \alpha(t, s) = \sum_{s'} \alpha(t-1, s') \exp \left( \sum_k \lambda_k f_k(s', s, \mathbf{o}_t) \right) 
+\end{equation}
+\\
+
+\begin{equation}
+    \beta(t, s) = \sum_{s'} \beta(t+1, s') \exp \left( \sum_k \lambda_k f_k(s, s', \mathbf{o}_{t+1}) \right)
+\end{equation}
+\\
+
+\end{document}
