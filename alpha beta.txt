@@ -8,7 +8,7 @@ def get_alpha_beta(data, probTable, charToInt):
         l = len(sentence);
         sen_a.append((0, 1));
         sen_b.append((0.5, 0.5))
-        for i in xrange(0, l-2):
+        for i in xrange(0, l-1):
             ci = charToInt.get(sentence[i][0]);
             na_0 = sen_a[i][0]*exp(probTable[0][0][ci]) + sen_a[i][1]*exp(probTable[1][0][ci]);
             na_1= sen_a[i][0]*exp(probTable[0][1][ci]) + sen_a[i][1]*exp(probTable[1][1][ci]);
