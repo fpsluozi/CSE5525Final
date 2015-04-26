@@ -28,7 +28,7 @@
 \begin{equation}
     Z_{\mathbf{s}} = \sum_{\mathbf{s}} \exp \left( \sum_{t=1}^{T} \sum_{k} \lambda_k f_k(s_{t-1}, s_t, o_t) \right)
 \end{equation}
-\\    
+\\
 
 \begin{equation}
     L = \sum_{n=1}^{N} \log P( \mathbf{s}^{(n)} | \mathbf{o}^{(n)}) - \sum_{k} \frac{\lambda_k^2}{2\sigma}
@@ -57,14 +57,22 @@
 
 \begin{equation}
 V(t, s) = \left\{ \begin{array}{lc}
-\max_{s'}( V(t-1, s') \exp \left( \sum_k \lambda_k f_k(s', s, \mathbf{o}_t) \right) ) & i>1 \\
-s==1 & i=1
+\max_{s'}( V(t-1, s') \exp \left( \sum_k \lambda_k f_k(s', s, \mathbf{o}_t) \right) ) & t>1 \\
+s==1 & t=1
 \end{array} \right.
 \end{equation}
 \\
 
 \begin{equation}
-    \alpha(t, s) = \sum_{s'} \alpha(t-1, s') \exp \left( \sum_k \lambda_k f_k(s', s, \mathbf{o}_t) \right) 
+V(t, s) = \left\{ \begin{array}{lc}
+\max_{s'}( V(t-1, s') + \sum_k \lambda_k f_k(s', s, \mathbf{o}_t) ) & t>1 \\
+V(1,0) = -\infty,\ V(1, 1) = 0 & t=1
+\end{array} \right.
+\end{equation}
+\\
+
+\begin{equation}
+    \alpha(t, s) = \sum_{s'} \alpha(t-1, s') \exp \left( \sum_k \lambda_k f_k(s', s, \mathbf{o}_t) \right)
 \end{equation}
 \\
 
@@ -73,4 +81,4 @@ s==1 & i=1
 \end{equation}
 \\
 
-\end{document}
+\end{document} 
