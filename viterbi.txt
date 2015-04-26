@@ -1,0 +1,28 @@
+import math
+import numpy
+# obeserves = input sentence(list), probTable = lambda table(s_(t-1), s_t, o_t), charToInt = map character to integer(map)
+def viterbi( observes, probTable, charToInt):
+    l = len(oberserves);
+    states = np.zeros((l, 2), dtype ='double');
+    paths = np.zeros((l, 2), dtype ='double');
+    states[0][1] = 0;
+    states[0][0] = -1e10;
+    for i in xrange(1, l):
+        k = charToInt[observes[i]];
+        for j in xrange(0, 2):
+            v1 = states[i-1][0] + probTable[0][j][k];
+            v2 = states[i-1][1] + probTable[1][j][k];
+            if( v1 > v2 ):
+                states[i][j] = v1;
+                paths[i][j] = 0;
+            else:
+                states[i][j] = v2;
+                paths[i][j] = 1;
+    ans = [];
+    if(states[l-1][0] > states[l-1][1]):
+        ans.insert(0, 0);
+    else:
+        ans.insert(0, 1);
+    for i in xrange(l-1, 0):
+        ans.insert(0, paths[i][ans[0]]);
+    return ans;
