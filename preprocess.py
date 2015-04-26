@@ -53,4 +53,4 @@ def test_preprocess():
 				cTable.update({character: cNo})
 				cNo = cNo + 1
 		testData.append(testLine)
-	return testData, cTable
+	return {'testData':testData, 'cTable':cTable}
