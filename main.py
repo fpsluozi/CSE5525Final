@@ -70,12 +70,51 @@ def SGD():
 				delta_temp=f[each_char][x][y]-e[each_char][x][y]-lamb[each_char][x][y]/teta
 				lamb[each_char][x][y]=lamb[each_char][x][y]-alfa*delta_temp
 	print("SGD done")
-	return lamb
+	# return lamb
+
+def viterbi(observes, probTable, charToInt):
+    l = len(observes);
+    states = numpy.zeros((l, 2), dtype ='double');
+    paths = numpy.zeros((l, 2), dtype = numpy.int);
+    states[0][1] = 0;
+    states[0][0] = -1e10;
+    for i in xrange(1, l):
+        k = charToInt[observes[i]];
+        for j in xrange(0, 2):
+            v1 = states[i-1][0] + probTable[k][0][j];
+            v2 = states[i-1][1] + probTable[k][1][j];
+            if( v1 > v2 ):
+                states[i][j] = v1;
+                paths[i][j] = 0;
+            else:
+                states[i][j] = v2;
+                paths[i][j] = 1;
+    ans = [];
+    if(states[l-1][0] > states[l-1][1]):
+        ans.insert(0, 0);
+    else:
+        ans.insert(0, 1);
+    for i in reversed(xrange(1, l)):
+        ans.insert(0, paths[i][ans[0]]);
+    return ans;
 
 get_alpha_beta()
 e_f_train()
+SGD()
 
-output = open('output.txt', 'w')
-output.write(SGD())
-output.close()
+ans = list()
+"""for sent in charToIntDict['testData']:
+	if len(sent) > 0:
+		ans.append(viterbi(sent, lamb, charToInt))
+"""
+ans.append(viterbi(charToIntDict['testData'][0], lamb, charToInt))
+ans.append(viterbi(charToIntDict['testData'][1], lamb, charToInt))
+ans.append(viterbi(charToIntDict['testData'][2], lamb, charToInt))
+ans.append(viterbi(charToIntDict['testData'][3], lamb, charToInt))
+ans.append(viterbi(charToIntDict['testData'][4], lamb, charToInt))
+ans.append(viterbi(charToIntDict['testData'][5], lamb, charToInt))
+print "Paths"
+print ans
+
+
 
