@@ -3,7 +3,7 @@ cNo = 0
 def train_preprocess():
 	lines = []
 	#f1 = open("test.utf8", 'r')
-	f1 = open('as_training.utf8', 'r')
+	f1 = open('as_training_1.utf8', 'r')
 	trainingText = f1.readlines()
 	#trainingText = trainingText.encode('UTF-8')
 	trainData = []
@@ -16,7 +16,7 @@ def train_preprocess():
 		trainLine = []
 
 		for character in line.decode('utf-8'):
-			if(character==' ' or character=='\n'):
+			if(character==' ' or character=='\n' or character==u'\ufeff'):
 				start = True
 				continue
 			if(start is True):
@@ -45,7 +45,7 @@ def test_preprocess():
 		testLine = []
 		for character in line.decode('utf-8'):
 			
-			if(character=='\n'):
+			if(character=='\n' or character==u'\ufeff'):
 				start = True
 				continue
 			testLine.append(character)
