@@ -13,9 +13,9 @@ lamb = numpy.zeros((len(charToInt), 2, 2))
 for x in range(2):
 	for y in range(2):
 		for z in range(len(charToInt)):
-			lamb[z][x][y] = 1.0
-teta=4
-alfa=1
+			lamb[z][x][y] = 0.0
+teta=0.00001
+alfa=100
 alpha = [];
 beta = [];
 
@@ -26,7 +26,7 @@ def get_alpha_beta():
         sen_a = [];
         sen_b = [];
         l = len(sentence);
-        sen_a.append((0, 1));
+        sen_a.append((0.000000000000000000000000000000001, 1));
         sen_b.append((0.5, 0.5))
         for i in xrange(l):
             ci = charToInt.get(sentence[i][0]);
@@ -48,17 +48,18 @@ def get_alpha_beta():
 def e_f_train():
 	for sent_ind in range(len(data)):
 	    sentence = data[sent_ind]
-	for x in range(1, len(sentence)):
-		(key, value) = sentence[x]
-		char_ind = charToInt.get(key)
-		tag_prev = sentence[x-1][1]
-		tag = value
-		f[char_ind][tag_prev][tag] += 1
+	    for x in range(1, len(sentence)):
+			(key, value) = sentence[x]
+			char_ind = charToInt.get(key)
+			tag_prev = sentence[x-1][1]
+			tag = value
+			f[char_ind][tag_prev][tag] += 1
 
-		e[char_ind][0][0] += alpha[sent_ind][x-1][0] * beta[sent_ind][x][0] * math.exp(lamb[char_ind][0][0])
-		e[char_ind][0][1] += alpha[sent_ind][x-1][0] * beta[sent_ind][x][1] * math.exp(lamb[char_ind][0][1])
-		e[char_ind][1][0] += alpha[sent_ind][x-1][1] * beta[sent_ind][x][0] * math.exp(lamb[char_ind][1][0])
-		e[char_ind][1][1] += alpha[sent_ind][x-1][1] * beta[sent_ind][x][1] * math.exp(lamb[char_ind][1][1])
+			e[char_ind][0][0] += alpha[sent_ind][x-1][0] * beta[sent_ind][x][0] * math.exp(lamb[char_ind][0][0])
+			e[char_ind][0][1] += alpha[sent_ind][x-1][0] * beta[sent_ind][x][1] * math.exp(lamb[char_ind][0][1])
+			e[char_ind][1][0] += alpha[sent_ind][x-1][1] * beta[sent_ind][x][0] * math.exp(lamb[char_ind][1][0])
+			e[char_ind][1][1] += alpha[sent_ind][x-1][1] * beta[sent_ind][x][1] * math.exp(lamb[char_ind][1][1])
+		
 	print("ef done")
     ####return e,f
 
@@ -74,7 +75,7 @@ def SGD():
 
 def viterbi(observes, probTable, charToInt):
     l = len(observes);
-    states = numpy.zeros((l, 2), dtype ='double');
+    states = numpy.zeros((l, 2));
     paths = numpy.zeros((l, 2), dtype = numpy.int);
     states[0][1] = 0;
     states[0][0] = -1e10;
@@ -99,8 +100,29 @@ def viterbi(observes, probTable, charToInt):
     return ans;
 
 get_alpha_beta()
+
 e_f_train()
-SGD()
+
+"""
+print "e:"
+for x in e:
+	print x
+print 
+
+print "f:"
+for x in f:
+	print x
+print
+"""
+
+for x in range(10):
+	SGD()
+
+print "lambda:"
+for x in lamb:
+	print x
+print 
+
 
 ans = list()
 """for sent in charToIntDict['testData']:
