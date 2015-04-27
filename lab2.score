@@ -1,0 +1,1960 @@
+--./as_gold_1.utf8-------ans.txt----1
+﻿時間							      |	時間
+：								：
+INSERTIONS:	0
+DELETIONS:	0
+SUBSTITUTIONS:	1
+NCHANGE:	1
+NTRUTH:	2
+NTEST:	2
+TRUE WORDS RECALL:	0.500
+TEST WORDS PRECISION:	0.500
+--./as_gold_1.utf8-------ans.txt----2
+三月								三月
+十日								十日
+（								（
+星期四								星期四
+）								）
+上午								上午
+十時								十時
+。								。
+INSERTIONS:	0
+DELETIONS:	0
+SUBSTITUTIONS:	0
+NCHANGE:	0
+NTRUTH:	8
+NTEST:	8
+TRUE WORDS RECALL:	1.000
+TEST WORDS PRECISION:	1.000
+--./as_gold_1.utf8-------ans.txt----3
+地點								地點
+：								：
+INSERTIONS:	0
+DELETIONS:	0
+SUBSTITUTIONS:	0
+NCHANGE:	0
+NTRUTH:	2
+NTEST:	2
+TRUE WORDS RECALL:	1.000
+TEST WORDS PRECISION:	1.000
+--./as_gold_1.utf8-------ans.txt----4
+學術								學術
+活動								活動
+中心								中心
+一樓								一樓
+簡報室							簡報室
+。								。
+INSERTIONS:	0
+DELETIONS:	0
+SUBSTITUTIONS:	0
+NCHANGE:	0
+NTRUTH:	6
+NTEST:	6
+TRUE WORDS RECALL:	1.000
+TEST WORDS PRECISION:	1.000
+--./as_gold_1.utf8-------ans.txt----5
+主講								主講
+：								：
+INSERTIONS:	0
+DELETIONS:	0
+SUBSTITUTIONS:	0
+NCHANGE:	0
+NTRUTH:	2
+NTEST:	2
+TRUE WORDS RECALL:	1.000
+TEST WORDS PRECISION:	1.000
+--./as_gold_1.utf8-------ans.txt----6
+民族所								民族所
+所長								所長
+莊英章								莊英章
+先生								先生
+。								。
+INSERTIONS:	0
+DELETIONS:	0
+SUBSTITUTIONS:	0
+NCHANGE:	0
+NTRUTH:	5
+NTEST:	5
+TRUE WORDS RECALL:	1.000
+TEST WORDS PRECISION:	1.000
+--./as_gold_1.utf8-------ans.txt----7
+講題								講題
+：								：
+INSERTIONS:	0
+DELETIONS:	0
+SUBSTITUTIONS:	0
+NCHANGE:	0
+NTRUTH:	2
+NTEST:	2
+TRUE WORDS RECALL:	1.000
+TEST WORDS PRECISION:	1.000
+--./as_gold_1.utf8-------ans.txt----8
+閩								閩
+、								、
+台								台
+漢人							      |	漢
+							      >	人
+社會								社會
+研究								研究
+的								的
+若干								若干
+考察								考察
+。								。
+INSERTIONS:	1
+DELETIONS:	0
+SUBSTITUTIONS:	1
+NCHANGE:	2
+NTRUTH:	10
+NTEST:	11
+TRUE WORDS RECALL:	0.900
+TEST WORDS PRECISION:	0.818
+--./as_gold_1.utf8-------ans.txt----9
+李								李
+院長								院長
+於								於
+二月								二月
+二十六日								二十六日
+至								至
+三月							      |	三
+十五日							      |	月十五日
+赴								赴
+美								美
+訪問								訪問
+，								，
+INSERTIONS:	0
+DELETIONS:	0
+SUBSTITUTIONS:	2
+NCHANGE:	2
+NTRUTH:	12
+NTEST:	12
+TRUE WORDS RECALL:	0.833
+TEST WORDS PRECISION:	0.833
+--./as_gold_1.utf8-------ans.txt----10
+期間							      |	期間將
+將							      <
+與								與
+在								在
+美								美
+院士								院士
+商討								商討
+院務								院務
+，								，
+INSERTIONS:	0
+DELETIONS:	1
+SUBSTITUTIONS:	1
+NCHANGE:	2
+NTRUTH:	9
+NTEST:	8
+TRUE WORDS RECALL:	0.778
+TEST WORDS PRECISION:	0.875
+--./as_gold_1.utf8-------ans.txt----11
+與								與
+美國								美國
+大學								大學
+聯繫								聯繫
+商討							      |	商
+長期							      |	討長
+							      >	期
+合作								合作
+事宜								事宜
+，								，
+INSERTIONS:	1
+DELETIONS:	0
+SUBSTITUTIONS:	2
+NCHANGE:	3
+NTRUTH:	9
+NTEST:	10
+TRUE WORDS RECALL:	0.778
+TEST WORDS PRECISION:	0.700
+--./as_gold_1.utf8-------ans.txt----12
+並								並
+辦理								辦理
+加州								加州
+大學								大學
+退休								退休
+等								等
+手續								手續
+。								。
+INSERTIONS:	0
+DELETIONS:	0
+SUBSTITUTIONS:	0
+NCHANGE:	0
+NTRUTH:	8
+NTEST:	8
+TRUE WORDS RECALL:	1.000
+TEST WORDS PRECISION:	1.000
+--./as_gold_1.utf8-------ans.txt----13
+出國								出國
+期間								期間
+院務								院務
+由								由
+羅								羅
+副院長							      |	副
+							      >	院長
+代行								代行
+。								。
+INSERTIONS:	1
+DELETIONS:	0
+SUBSTITUTIONS:	1
+NCHANGE:	2
+NTRUTH:	8
+NTEST:	9
+TRUE WORDS RECALL:	0.875
+TEST WORDS PRECISION:	0.778
+--./as_gold_1.utf8-------ans.txt----14
+總辦事處							總辦事處
+秘書組								秘書組
+主任								主任
+戴政								戴政
+先生								先生
+請辭								請辭
+獲准								獲准
+，								，
+INSERTIONS:	0
+DELETIONS:	0
+SUBSTITUTIONS:	0
+NCHANGE:	0
+NTRUTH:	8
+NTEST:	8
+TRUE WORDS RECALL:	1.000
+TEST WORDS PRECISION:	1.000
+--./as_gold_1.utf8-------ans.txt----15
+所								所
+遺								遺
+職務								職務
+自								自
+三月							      |	三
+							      >	月
+一日								一日
+起								起
+由								由
+近代史							      |	近
+							      >	代史
+研究所								研究所
+研究員								研究員
+陶英惠								陶英惠
+先生								先生
+兼任								兼任
+。								。
+INSERTIONS:	2
+DELETIONS:	0
+SUBSTITUTIONS:	2
+NCHANGE:	4
+NTRUTH:	15
+NTEST:	17
+TRUE WORDS RECALL:	0.867
+TEST WORDS PRECISION:	0.765
+--./as_gold_1.utf8-------ans.txt----16
+植物								植物
+研究所								研究所
+所長								所長
+周昌弘								周昌弘
+先生								先生
+當選							      |	當
+第三世界						      |	選
+							      >	第
+							      >	三
+							      >	世界
+科學院								科學院
+（								（
+Ｔｈｅ								Ｔｈｅ
+Ｔｈｉｒｄ						      |	ＴｈｉｒｄＷｏｒｌｄＡｃａｄｅｍｙｏｆＳｃｉｅｎｃｅｓ
+Ｗｏｒｌｄ						      <
+Ａｃａｄｅｍｙ						      <
+ｏｆ							      <
+Ｓｃｉｅｎｃｅｓ					      <
+，								，
+INSERTIONS:	3
+DELETIONS:	4
+SUBSTITUTIONS:	3
+NCHANGE:	10
+NTRUTH:	16
+NTEST:	15
+TRUE WORDS RECALL:	0.562
+TEST WORDS PRECISION:	0.600
+--./as_gold_1.utf8-------ans.txt----17
+簡稱								簡稱
+ＴＷＡＳ							ＴＷＡＳ
+）								）
+院士								院士
+。								。
+INSERTIONS:	0
+DELETIONS:	0
+SUBSTITUTIONS:	0
+NCHANGE:	0
+NTRUTH:	5
+NTEST:	5
+TRUE WORDS RECALL:	1.000
+TEST WORDS PRECISION:	1.000
+--./as_gold_1.utf8-------ans.txt----18
+ＴＷＡＳ							ＴＷＡＳ
+係								係
+一九八三年							一九八三年
+由							      |	由ＰｒｏｆＡｄｂｕｓＳａｌａｍ
+Ｐｒｏｆ						      <
+Ａｄｂｕｓ						      <
+Ｓａｌａｍ						      <
+（								（
+巴基斯坦籍							巴基斯坦籍
+，								，
+INSERTIONS:	0
+DELETIONS:	3
+SUBSTITUTIONS:	1
+NCHANGE:	4
+NTRUTH:	10
+NTEST:	7
+TRUE WORDS RECALL:	0.600
+TEST WORDS PRECISION:	0.857
+--./as_gold_1.utf8-------ans.txt----19
+曾								曾
+獲								獲
+諾貝爾獎							諾貝爾獎
+）							      |	）發
+發起							      |	起
+成立								成立
+，								，
+INSERTIONS:	0
+DELETIONS:	0
+SUBSTITUTIONS:	2
+NCHANGE:	2
+NTRUTH:	7
+NTEST:	7
+TRUE WORDS RECALL:	0.714
+TEST WORDS PRECISION:	0.714
+--./as_gold_1.utf8-------ans.txt----20
+會員								會員
+遍佈								遍佈
+６３							      |	６
+							      >	３
+個								個
+國家								國家
+，								，
+INSERTIONS:	1
+DELETIONS:	0
+SUBSTITUTIONS:	1
+NCHANGE:	2
+NTRUTH:	6
+NTEST:	7
+TRUE WORDS RECALL:	0.833
+TEST WORDS PRECISION:	0.714
+--./as_gold_1.utf8-------ans.txt----21
+目前								目前
+由								由
+２３２							      |	２
+							      >	３
+							      >	２
+位								位
+院士								院士
+（							      |	（Ｆｅｌｌｏｗ
+Ｆｅｌｌｏｗ						      |	及Ｆｏｕｎｄｉｎｇ
+及							      <
+Ｆｏｕｎｄｉｎｇ					      <
+Ｆｅｌｌｏｗ							Ｆｅｌｌｏｗ
+）								）
+，								，
+INSERTIONS:	2
+DELETIONS:	2
+SUBSTITUTIONS:	3
+NCHANGE:	7
+NTRUTH:	12
+NTEST:	12
+TRUE WORDS RECALL:	0.583
+TEST WORDS PRECISION:	0.583
+--./as_gold_1.utf8-------ans.txt----22
+６６							      |	６
+							      >	６
+位								位
+協院士							      |	協
+（							      |	院士
+Ａｓｓｏｃｉａｔｅ					      |	（Ａｓｓｏｃｉａｔｅ
+Ｆｅｌｌｏｗ							Ｆｅｌｌｏｗ
+）								）
+２４							      |	２
+							      >	４
+位								位
+通信								通信
+院士								院士
+（							      |	（Ｃｏｒｒｅｓｐｏｎｄｉｎｇ
+Ｃｏｒｒｅｓｐｏｎｄｉｎｇ				      <
+Ｆｅｌｌｏｗ							Ｆｅｌｌｏｗ
+）								）
+及								及
+２								２
+位								位
+通信								通信
+協院士							      |	協
+（							      |	院士
+Ｃｏｒｒｅｓｐｏｎｄｉｎｇ				      |	（ＣｏｒｒｅｓｐｏｎｄｉｎｇＡｓｓｏｃｉａｔｅ
+Ａｓｓｏｃｉａｔｅ					      <
+Ｆｅｌｌｏｗ							Ｆｅｌｌｏｗ
+）								）
+組成								組成
+（								（
+不								不
+包括							      |	包
+							      >	括
+一九九四年							一九九四年
+當選							      |	當選者
+者							      <
+）								）
+，								，
+INSERTIONS:	3
+DELETIONS:	3
+SUBSTITUTIONS:	11
+NCHANGE:	17
+NTRUTH:	34
+NTEST:	34
+TRUE WORDS RECALL:	0.588
+TEST WORDS PRECISION:	0.588
+--./as_gold_1.utf8-------ans.txt----23
+李政道								李政道
+、								、
+楊振寧								楊振寧
+、								、
+丁肇中								丁肇中
+、								、
+李遠哲								李遠哲
+、								、
+陳省身								陳省身
+、								、
+吳健雄								吳健雄
+、								、
+朱經武								朱經武
+、								、
+蔡南海								蔡南海
+等								等
+院士								院士
+均								均
+為							      |	為該院Ａｓｓｏｃｉａｔｅ
+該							      <
+院							      <
+Ａｓｓｏｃｉａｔｅ					      <
+Ｆｅｌｌｏｗ							Ｆｅｌｌｏｗ
+。								。
+INSERTIONS:	0
+DELETIONS:	3
+SUBSTITUTIONS:	1
+NCHANGE:	4
+NTRUTH:	24
+NTEST:	21
+TRUE WORDS RECALL:	0.833
+TEST WORDS PRECISION:	0.952
+--./as_gold_1.utf8-------ans.txt----24
+本								本
+院								院
+數理組								數理組
+院士								院士
+、								、
+哈佛								哈佛
+大學								大學
+數學系							數學系
+教授								教授
+丘成桐								丘成桐
+，								，
+INSERTIONS:	0
+DELETIONS:	0
+SUBSTITUTIONS:	0
+NCHANGE:	0
+NTRUTH:	11
+NTEST:	11
+TRUE WORDS RECALL:	1.000
+TEST WORDS PRECISION:	1.000
+--./as_gold_1.utf8-------ans.txt----25
+經								經
+瑞典								瑞典
+皇家								皇家
+科學院								科學院
+評定為							      |	評定
+							      >	為
+一九九四年							一九九四年
+克列佛								克列佛
+（								（
+Ｃｒａｆｏｏ						      |	ＣｒａｆｏｏＰｒｉｚｅ
+Ｐｒｉｚｅ						      <
+）								）
+獎								獎
+得主								得主
+，								，
+INSERTIONS:	1
+DELETIONS:	1
+SUBSTITUTIONS:	2
+NCHANGE:	4
+NTRUTH:	14
+NTEST:	14
+TRUE WORDS RECALL:	0.786
+TEST WORDS PRECISION:	0.786
+--./as_gold_1.utf8-------ans.txt----26
+藉以								藉以
+表彰								表彰
+其								其
+在								在
+微分								微分
+幾何								幾何
+領域								領域
+影響								影響
+深遠								深遠
+之								之
+貢獻								貢獻
+。								。
+INSERTIONS:	0
+DELETIONS:	0
+SUBSTITUTIONS:	0
+NCHANGE:	0
+NTRUTH:	12
+NTEST:	12
+TRUE WORDS RECALL:	1.000
+TEST WORDS PRECISION:	1.000
+--./as_gold_1.utf8-------ans.txt----27
+丘								丘
+院士								院士
+一九四九年						      |	一九
+							      >	四九年
+出生								出生
+於								於
+廣東								廣東
+，								，
+INSERTIONS:	1
+DELETIONS:	0
+SUBSTITUTIONS:	1
+NCHANGE:	2
+NTRUTH:	7
+NTEST:	8
+TRUE WORDS RECALL:	0.857
+TEST WORDS PRECISION:	0.750
+--./as_gold_1.utf8-------ans.txt----28
+一九七一年							一九七一年
+加州								加州
+大學								大學
+柏克萊								柏克萊
+分校							      |	分
+							      >	校
+數學								數學
+博士								博士
+，								，
+INSERTIONS:	1
+DELETIONS:	0
+SUBSTITUTIONS:	1
+NCHANGE:	2
+NTRUTH:	8
+NTEST:	9
+TRUE WORDS RECALL:	0.875
+TEST WORDS PRECISION:	0.778
+--./as_gold_1.utf8-------ans.txt----29
+陳省身								陳省身
+院士								院士
+即為								即為
+其								其
+指導								指導
+教授								教授
+。								。
+INSERTIONS:	0
+DELETIONS:	0
+SUBSTITUTIONS:	0
+NCHANGE:	0
+NTRUTH:	7
+NTEST:	7
+TRUE WORDS RECALL:	1.000
+TEST WORDS PRECISION:	1.000
+--./as_gold_1.utf8-------ans.txt----30
+二十餘							      |	二十餘年來
+年							      <
+來							      <
+，								，
+INSERTIONS:	0
+DELETIONS:	2
+SUBSTITUTIONS:	1
+NCHANGE:	3
+NTRUTH:	4
+NTEST:	2
+TRUE WORDS RECALL:	0.250
+TEST WORDS PRECISION:	0.500
+--./as_gold_1.utf8-------ans.txt----31
+他								他
+在								在
+幾何							      |	幾何中
+中							      |	的基
+的							      |	本
+基本							      |	偏
+偏微分							      |	微分
+方程								方程
+之								之
+成就							      |	成
+對於							      |	就對
+拓樸學							      |	於拓
+							      >	樸學
+、								、
+代數							      |	代
+							      >	數
+幾何								幾何
+表示論							表示論
+、								、
+廣義								廣義
+相對論								相對論
+、								、
+微分								微分
+幾何								幾何
+、								、
+偏微分							      |	偏
+							      >	微分
+方程								方程
+等								等
+數學								數學
+和								和
+物理							      |	物理中
+中							      <
+的								的
+多								多
+個								個
+領域								領域
+都								都
+有							      |	有重
+重大							      |	大
+貢獻								貢獻
+，								，
+INSERTIONS:	3
+DELETIONS:	1
+SUBSTITUTIONS:	13
+NCHANGE:	17
+NTRUTH:	39
+NTEST:	41
+TRUE WORDS RECALL:	0.641
+TEST WORDS PRECISION:	0.610
+--./as_gold_1.utf8-------ans.txt----32
+甚至								甚至
+影響							      |	影
+理論							      |	響理論
+物理								物理
+、								、
+電腦								電腦
+、								、
+通訊								通訊
+、								、
+統計								統計
+、								、
+醫藥								醫藥
+和							      |	和生
+生物學							      |	物學
+等							      |	等學門
+學門							      <
+。								。
+INSERTIONS:	0
+DELETIONS:	1
+SUBSTITUTIONS:	5
+NCHANGE:	6
+NTRUTH:	17
+NTEST:	16
+TRUE WORDS RECALL:	0.647
+TEST WORDS PRECISION:	0.688
+--./as_gold_1.utf8-------ans.txt----33
+丘								丘
+院士							      |	院士近年
+近年							      <
+來								來
+獲								獲
+多								多
+項								項
+數學								數學
+大							      |	大獎
+獎							      <
+，								，
+INSERTIONS:	0
+DELETIONS:	2
+SUBSTITUTIONS:	2
+NCHANGE:	4
+NTRUTH:	11
+NTEST:	9
+TRUE WORDS RECALL:	0.636
+TEST WORDS PRECISION:	0.778
+--./as_gold_1.utf8-------ans.txt----34
+包括							      |	包
+							      >	括
+一九七八年							一九七八年
+獲有							      |	獲
+							      >	有
+數學								數學
+諾貝爾								諾貝爾
+之							      |	之稱
+稱							      |	的費爾茲獎
+的							      <
+費爾茲獎						      <
+，								，
+INSERTIONS:	2
+DELETIONS:	2
+SUBSTITUTIONS:	4
+NCHANGE:	8
+NTRUTH:	10
+NTEST:	10
+TRUE WORDS RECALL:	0.400
+TEST WORDS PRECISION:	0.400
+--./as_gold_1.utf8-------ans.txt----35
+八十年代							八十年代
+獲								獲
+麥克阿瑟							      |	麥克阿
+							      >	瑟
+獎金								獎金
+。								。
+INSERTIONS:	1
+DELETIONS:	0
+SUBSTITUTIONS:	1
+NCHANGE:	2
+NTRUTH:	5
+NTEST:	6
+TRUE WORDS RECALL:	0.800
+TEST WORDS PRECISION:	0.667
+--./as_gold_1.utf8-------ans.txt----36
+民國							      |	民國七
+七十三年						      |	十三年
+，								，
+INSERTIONS:	0
+DELETIONS:	0
+SUBSTITUTIONS:	2
+NCHANGE:	2
+NTRUTH:	3
+NTEST:	3
+TRUE WORDS RECALL:	0.333
+TEST WORDS PRECISION:	0.333
+--./as_gold_1.utf8-------ans.txt----37
+當選								當選
+本								本
+院								院
+第十五								第十五
+屆								屆
+數理組								數理組
+院士								院士
+。								。
+INSERTIONS:	0
+DELETIONS:	0
+SUBSTITUTIONS:	0
+NCHANGE:	0
+NTRUTH:	8
+NTEST:	8
+TRUE WORDS RECALL:	1.000
+TEST WORDS PRECISION:	1.000
+--./as_gold_1.utf8-------ans.txt----38
+台北市							      |	台北
+國稅局							      |	市國稅局
+南港								南港
+稽征處								稽征處
+定								定
+三月								三月
+十一日							      |	十
+							      >	一日
+上午								上午
+九時								九時
+卅分								卅分
+起							      |	起至
+至							      <
+下午								下午
+四時								四時
+在								在
+活動								活動
+中心								中心
+一樓								一樓
+設								設
+服務台								服務台
+協助								協助
+同仁								同仁
+處理								處理
+綜合								綜合
+所得稅								所得稅
+結算								結算
+申報								申報
+事宜								事宜
+，								，
+INSERTIONS:	1
+DELETIONS:	1
+SUBSTITUTIONS:	4
+NCHANGE:	6
+NTRUTH:	29
+NTEST:	29
+TRUE WORDS RECALL:	0.828
+TEST WORDS PRECISION:	0.828
+--./as_gold_1.utf8-------ans.txt----39
+請								請
+同仁								同仁
+多加								多加
+利用								利用
+。								。
+INSERTIONS:	0
+DELETIONS:	0
+SUBSTITUTIONS:	0
+NCHANGE:	0
+NTRUTH:	5
+NTEST:	5
+TRUE WORDS RECALL:	1.000
+TEST WORDS PRECISION:	1.000
+--./as_gold_1.utf8-------ans.txt----40
+引言								引言
+。								。
+INSERTIONS:	0
+DELETIONS:	0
+SUBSTITUTIONS:	0
+NCHANGE:	0
+NTRUTH:	2
+NTEST:	2
+TRUE WORDS RECALL:	1.000
+TEST WORDS PRECISION:	1.000
+--./as_gold_1.utf8-------ans.txt----41
+記得								記得
+我								我
+上								上
+初一								初一
+的							      |	的時候
+時候							      <
+，								，
+INSERTIONS:	0
+DELETIONS:	1
+SUBSTITUTIONS:	1
+NCHANGE:	2
+NTRUTH:	7
+NTEST:	6
+TRUE WORDS RECALL:	0.714
+TEST WORDS PRECISION:	0.833
+--./as_gold_1.utf8-------ans.txt----42
+鄰居								鄰居
+的								的
+一								一
+位								位
+兄長								兄長
+決定								決定
+報考							      |	報
+							      >	考
+台大								台大
+歷史系							歷史系
+，								，
+INSERTIONS:	1
+DELETIONS:	0
+SUBSTITUTIONS:	1
+NCHANGE:	2
+NTRUTH:	10
+NTEST:	11
+TRUE WORDS RECALL:	0.900
+TEST WORDS PRECISION:	0.818
+--./as_gold_1.utf8-------ans.txt----43
+我								我
+好奇								好奇
+的								的
+問								問
+他								他
+為什麼							      |	為什
+學							      |	麼學
+歷史								歷史
+？								？
+INSERTIONS:	0
+DELETIONS:	0
+SUBSTITUTIONS:	2
+NCHANGE:	2
+NTRUTH:	9
+NTEST:	9
+TRUE WORDS RECALL:	0.778
+TEST WORDS PRECISION:	0.778
+--./as_gold_1.utf8-------ans.txt----44
+這								這
+位								位
+兄長								兄長
+並								並
+沒有								沒有
+告訴								告訴
+我							      |	我到底
+到底							      <
+為什麼								為什麼
+，								，
+INSERTIONS:	0
+DELETIONS:	1
+SUBSTITUTIONS:	1
+NCHANGE:	2
+NTRUTH:	10
+NTEST:	9
+TRUE WORDS RECALL:	0.800
+TEST WORDS PRECISION:	0.889
+--./as_gold_1.utf8-------ans.txt----45
+只							      |	只說
+說							      <
+大家								大家
+尊敬								尊敬
+的								的
+台大								台大
+校長								校長
+傅斯年								傅斯年
+教授								教授
+是								是
+一								一
+位								位
+名								名
+歷史							      |	歷
+學者							      |	史學者
+。								。
+INSERTIONS:	0
+DELETIONS:	1
+SUBSTITUTIONS:	3
+NCHANGE:	4
+NTRUTH:	16
+NTEST:	15
+TRUE WORDS RECALL:	0.750
+TEST WORDS PRECISION:	0.800
+--./as_gold_1.utf8-------ans.txt----46
+一九五六年							一九五六年
+我								我
+從								從
+台大							      |	台大化工系
+化工系							      <
+轉到								轉到
+化學系								化學系
+，								，
+INSERTIONS:	0
+DELETIONS:	1
+SUBSTITUTIONS:	1
+NCHANGE:	2
+NTRUTH:	8
+NTEST:	7
+TRUE WORDS RECALL:	0.750
+TEST WORDS PRECISION:	0.857
+--./as_gold_1.utf8-------ans.txt----47
+那時								那時
+很多							      |	很
+							      >	多
+人								人
+也								也
+問								問
+我								我
+為什麼								為什麼
+？								？
+INSERTIONS:	1
+DELETIONS:	0
+SUBSTITUTIONS:	1
+NCHANGE:	2
+NTRUTH:	8
+NTEST:	9
+TRUE WORDS RECALL:	0.875
+TEST WORDS PRECISION:	0.778
+--./as_gold_1.utf8-------ans.txt----48
+我								我
+雖								雖
+有								有
+令								令
+人							      |	人信服
+信服							      |	的理由
+的							      <
+理由							      <
+，								，
+INSERTIONS:	0
+DELETIONS:	2
+SUBSTITUTIONS:	2
+NCHANGE:	4
+NTRUTH:	9
+NTEST:	7
+TRUE WORDS RECALL:	0.556
+TEST WORDS PRECISION:	0.714
+--./as_gold_1.utf8-------ans.txt----49
+但								但
+在								在
+我								我
+無心								無心
+細說							      |	細
+時							      |	說時
+，								，
+INSERTIONS:	0
+DELETIONS:	0
+SUBSTITUTIONS:	2
+NCHANGE:	2
+NTRUTH:	7
+NTEST:	7
+TRUE WORDS RECALL:	0.714
+TEST WORDS PRECISION:	0.714
+--./as_gold_1.utf8-------ans.txt----50
+總								總
+也								也
+不經意								不經意
+的								的
+提到								提到
+，								，
+INSERTIONS:	0
+DELETIONS:	0
+SUBSTITUTIONS:	0
+NCHANGE:	0
+NTRUTH:	6
+NTEST:	6
+TRUE WORDS RECALL:	1.000
+TEST WORDS PRECISION:	1.000
+--./as_gold_1.utf8-------ans.txt----51
+台大								台大
+的								的
+校長								校長
+錢思亮								錢思亮
+教授								教授
+，								，
+INSERTIONS:	0
+DELETIONS:	0
+SUBSTITUTIONS:	0
+NCHANGE:	0
+NTRUTH:	6
+NTEST:	6
+TRUE WORDS RECALL:	1.000
+TEST WORDS PRECISION:	1.000
+--./as_gold_1.utf8-------ans.txt----52
+是								是
+一								一
+位							      |	位學
+學							      <
+化學								化學
+的							      |	的學者
+學者							      <
+。								。
+INSERTIONS:	0
+DELETIONS:	2
+SUBSTITUTIONS:	2
+NCHANGE:	4
+NTRUTH:	8
+NTEST:	6
+TRUE WORDS RECALL:	0.500
+TEST WORDS PRECISION:	0.667
+--./as_gold_1.utf8-------ans.txt----53
+在								在
+台大								台大
+的							      |	的四年裡
+四							      <
+年							      <
+裡							      <
+，								，
+INSERTIONS:	0
+DELETIONS:	3
+SUBSTITUTIONS:	1
+NCHANGE:	4
+NTRUTH:	7
+NTEST:	4
+TRUE WORDS RECALL:	0.429
+TEST WORDS PRECISION:	0.750
+--./as_gold_1.utf8-------ans.txt----54
+我								我
+只								只
+聽								聽
+過								過
+一							      |	一次
+次							      <
+錢								錢
+校長								校長
+給								給
+化學系								化學系
+同學								同學
+們								們
+所							      |	所做
+做							      <
+的								的
+有關								有關
+分析化學							      |	分析
+							      >	化學
+的								的
+演說								演說
+。								。
+INSERTIONS:	1
+DELETIONS:	2
+SUBSTITUTIONS:	3
+NCHANGE:	6
+NTRUTH:	20
+NTEST:	19
+TRUE WORDS RECALL:	0.750
+TEST WORDS PRECISION:	0.789
+--./as_gold_1.utf8-------ans.txt----55
+他								他
+語重心長							      |	語重
+							      >	心長
+的								的
+勉勵								勉勵
+同學								同學
+們								們
+一								一
+番							      |	番話
+話							      <
+，								，
+INSERTIONS:	1
+DELETIONS:	1
+SUBSTITUTIONS:	2
+NCHANGE:	4
+NTRUTH:	10
+NTEST:	10
+TRUE WORDS RECALL:	0.700
+TEST WORDS PRECISION:	0.700
+--./as_gold_1.utf8-------ans.txt----56
+至今								至今
+還								還
+記憶猶新							記憶猶新
+，								，
+INSERTIONS:	0
+DELETIONS:	0
+SUBSTITUTIONS:	0
+NCHANGE:	0
+NTRUTH:	4
+NTEST:	4
+TRUE WORDS RECALL:	1.000
+TEST WORDS PRECISION:	1.000
+--./as_gold_1.utf8-------ans.txt----57
+歷歷如繪							歷歷如繪
+。								。
+INSERTIONS:	0
+DELETIONS:	0
+SUBSTITUTIONS:	0
+NCHANGE:	0
+NTRUTH:	2
+NTEST:	2
+TRUE WORDS RECALL:	1.000
+TEST WORDS PRECISION:	1.000
+--./as_gold_1.utf8-------ans.txt----58
+我								我
+真正								真正
+認識								認識
+錢								錢
+院長							      |	院長還
+還							      <
+是								是
+在								在
+一九八三年							一九八三年
+被							      |	被選為
+選為							      <
+中央								中央
+研究院							      |	研究
+							      >	院
+院士								院士
+之後								之後
+。								。
+INSERTIONS:	1
+DELETIONS:	2
+SUBSTITUTIONS:	3
+NCHANGE:	6
+NTRUTH:	16
+NTEST:	15
+TRUE WORDS RECALL:	0.688
+TEST WORDS PRECISION:	0.733
+--./as_gold_1.utf8-------ans.txt----59
+那時								那時
+為								為
+了								了
+在							      |	在中
+中研院							      |	研
+籌設							      |	院籌
+新							      |	設新
+的								的
+原子								原子
+與							      |	與分子
+分子							      <
+科學								科學
+研究所								研究所
+，								，
+INSERTIONS:	0
+DELETIONS:	1
+SUBSTITUTIONS:	5
+NCHANGE:	6
+NTRUTH:	14
+NTEST:	13
+TRUE WORDS RECALL:	0.571
+TEST WORDS PRECISION:	0.615
+--./as_gold_1.utf8-------ans.txt----60
+我們								我們
+曾								曾
+有								有
+過								過
+頻繁								頻繁
+的								的
+接觸								接觸
+與								與
+深入								深入
+的							      |	的討論
+討論							      <
+，								，
+INSERTIONS:	0
+DELETIONS:	1
+SUBSTITUTIONS:	1
+NCHANGE:	2
+NTRUTH:	12
+NTEST:	11
+TRUE WORDS RECALL:	0.833
+TEST WORDS PRECISION:	0.909
+--./as_gold_1.utf8-------ans.txt----61
+每								每
+次								次
+回憶								回憶
+起							      |	起他
+他							      |	的學人
+的							      <
+學人							      <
+風範								風範
+，								，
+INSERTIONS:	0
+DELETIONS:	2
+SUBSTITUTIONS:	2
+NCHANGE:	4
+NTRUTH:	9
+NTEST:	7
+TRUE WORDS RECALL:	0.556
+TEST WORDS PRECISION:	0.714
+--./as_gold_1.utf8-------ans.txt----62
+他								他
+那								那
+誠懇								誠懇
+待							      |	待人
+人							      <
+與								與
+扶植							      |	扶植年
+年輕人						      |	輕人
+的								的
+苦心								苦心
+，								，
+INSERTIONS:	0
+DELETIONS:	1
+SUBSTITUTIONS:	3
+NCHANGE:	4
+NTRUTH:	11
+NTEST:	10
+TRUE WORDS RECALL:	0.636
+TEST WORDS PRECISION:	0.700
+--./as_gold_1.utf8-------ans.txt----63
+心								心
+裡								裡
+總								總
+有								有
+一								一
+股								股
+難忘								難忘
+的								的
+溫馨								溫馨
+。								。
+INSERTIONS:	0
+DELETIONS:	0
+SUBSTITUTIONS:	0
+NCHANGE:	0
+NTRUTH:	10
+NTEST:	10
+TRUE WORDS RECALL:	1.000
+TEST WORDS PRECISION:	1.000
+--./as_gold_1.utf8-------ans.txt----64
+我								我
+今天								今天
+能夠								能夠
+在								在
+這								這
+紀念								紀念
+錢思亮								錢思亮
+院長								院長
+八十七								八十七
+歲								歲
+冥誕								冥誕
+的								的
+集會							      |	集會裡
+裡							      <
+，								，
+INSERTIONS:	0
+DELETIONS:	1
+SUBSTITUTIONS:	1
+NCHANGE:	2
+NTRUTH:	15
+NTEST:	14
+TRUE WORDS RECALL:	0.867
+TEST WORDS PRECISION:	0.929
+--./as_gold_1.utf8-------ans.txt----65
+做								做
+一								一
+次								次
+演講								演講
+，								，
+INSERTIONS:	0
+DELETIONS:	0
+SUBSTITUTIONS:	0
+NCHANGE:	0
+NTRUTH:	5
+NTEST:	5
+TRUE WORDS RECALL:	1.000
+TEST WORDS PRECISION:	1.000
+--./as_gold_1.utf8-------ans.txt----66
+覺得								覺得
+非常								非常
+榮幸								榮幸
+。								。
+INSERTIONS:	0
+DELETIONS:	0
+SUBSTITUTIONS:	0
+NCHANGE:	0
+NTRUTH:	4
+NTEST:	4
+TRUE WORDS RECALL:	1.000
+TEST WORDS PRECISION:	1.000
+--./as_gold_1.utf8-------ans.txt----67
+我								我
+就								就
+以							      |	以「
+「							      <
+中央								中央
+研究院								研究院
+未來								未來
+的								的
+展望								展望
+」								」
+為								為
+題目								題目
+紀念								紀念
+錢								錢
+院長								院長
+，								，
+INSERTIONS:	0
+DELETIONS:	1
+SUBSTITUTIONS:	1
+NCHANGE:	2
+NTRUTH:	16
+NTEST:	15
+TRUE WORDS RECALL:	0.875
+TEST WORDS PRECISION:	0.933
+--./as_gold_1.utf8-------ans.txt----68
+也								也
+希望								希望
+能								能
+拋磚引玉							      |	拋磚引玉跟
+跟							      <
+大家								大家
+共同								共同
+找出								找出
+中央								中央
+研究院							      |	研究
+							      >	院
+美好								美好
+的							      |	的遠景
+遠景							      <
+。								。
+INSERTIONS:	1
+DELETIONS:	2
+SUBSTITUTIONS:	3
+NCHANGE:	6
+NTRUTH:	14
+NTEST:	13
+TRUE WORDS RECALL:	0.643
+TEST WORDS PRECISION:	0.692
+--./as_gold_1.utf8-------ans.txt----69
+三十六							      |	三十六年
+年							      <
+前								前
+—								—
+民國								民國
+四十七年								四十七年
+的								的
+四月								四月
+十日								十日
+，								，
+INSERTIONS:	0
+DELETIONS:	1
+SUBSTITUTIONS:	1
+NCHANGE:	2
+NTRUTH:	10
+NTEST:	9
+TRUE WORDS RECALL:	0.800
+TEST WORDS PRECISION:	0.889
+--./as_gold_1.utf8-------ans.txt----70
+胡適								胡適
+先生								先生
+接任								接任
+院長								院長
+職務								職務
+。								。
+INSERTIONS:	0
+DELETIONS:	0
+SUBSTITUTIONS:	0
+NCHANGE:	0
+NTRUTH:	6
+NTEST:	6
+TRUE WORDS RECALL:	1.000
+TEST WORDS PRECISION:	1.000
+--./as_gold_1.utf8-------ans.txt----71
+那								那
+年								年
+應該								應該
+也								也
+是							      |	是狗年
+狗年							      <
+。								。
+INSERTIONS:	0
+DELETIONS:	1
+SUBSTITUTIONS:	1
+NCHANGE:	2
+NTRUTH:	7
+NTEST:	6
+TRUE WORDS RECALL:	0.714
+TEST WORDS PRECISION:	0.833
+--./as_gold_1.utf8-------ans.txt----72
+緊接								緊接
+著								著
+簡單								簡單
+的								的
+就職								就職
+典禮							      |	典
+後							      |	禮後
+，								，
+INSERTIONS:	0
+DELETIONS:	0
+SUBSTITUTIONS:	2
+NCHANGE:	2
+NTRUTH:	8
+NTEST:	8
+TRUE WORDS RECALL:	0.750
+TEST WORDS PRECISION:	0.750
+--./as_gold_1.utf8-------ans.txt----73
+中央								中央
+研究院								研究院
+的								的
+第三							      |	第
+							      >	三
+次								次
+院士								院士
+會議								會議
+便								便
+在								在
+考古館								考古館
+樓上								樓上
+召開								召開
+。								。
+INSERTIONS:	1
+DELETIONS:	0
+SUBSTITUTIONS:	1
+NCHANGE:	2
+NTRUTH:	13
+NTEST:	14
+TRUE WORDS RECALL:	0.923
+TEST WORDS PRECISION:	0.857
+--./as_gold_1.utf8-------ans.txt----74
+胡適								胡適
+院長								院長
+在								在
+開幕式								開幕式
+的								的
+致詞								致詞
+中								中
+，								，
+INSERTIONS:	0
+DELETIONS:	0
+SUBSTITUTIONS:	0
+NCHANGE:	0
+NTRUTH:	8
+NTEST:	8
+TRUE WORDS RECALL:	1.000
+TEST WORDS PRECISION:	1.000
+--./as_gold_1.utf8-------ans.txt----75
+談到								談到
+了								了
+不少								不少
+令								令
+人								人
+深思								深思
+的							      |	的話
+話							      <
+，								，
+INSERTIONS:	0
+DELETIONS:	1
+SUBSTITUTIONS:	1
+NCHANGE:	2
+NTRUTH:	9
+NTEST:	8
+TRUE WORDS RECALL:	0.778
+TEST WORDS PRECISION:	0.875
+--./as_gold_1.utf8-------ans.txt----76
+他								他
+談到								談到
+「								「
+科學								科學
+是								是
+一								一
+個								個
+方法							      |	方法」
+」							      <
+，								，
+INSERTIONS:	0
+DELETIONS:	1
+SUBSTITUTIONS:	1
+NCHANGE:	2
+NTRUTH:	10
+NTEST:	9
+TRUE WORDS RECALL:	0.800
+TEST WORDS PRECISION:	0.889
+--./as_gold_1.utf8-------ans.txt----77
+「								「
+民主								民主
+是								是
+一								一
+種							      |	種生活
+生活							      <
+的								的
+方式								方式
+，								，
+INSERTIONS:	0
+DELETIONS:	1
+SUBSTITUTIONS:	1
+NCHANGE:	2
+NTRUTH:	9
+NTEST:	8
+TRUE WORDS RECALL:	0.778
+TEST WORDS PRECISION:	0.875
+--./as_gold_1.utf8-------ans.txt----78
+生活								生活
+的								的
+習慣							      |	習慣」
+」							      <
+，								，
+INSERTIONS:	0
+DELETIONS:	1
+SUBSTITUTIONS:	1
+NCHANGE:	2
+NTRUTH:	5
+NTEST:	4
+TRUE WORDS RECALL:	0.600
+TEST WORDS PRECISION:	0.750
+--./as_gold_1.utf8-------ans.txt----79
+不要								不要
+把								把
+科學								科學
+民主							      |	民
+							      >	主
+人格化								人格化
+、								、
+偶像化								偶像化
+而								而
+盲目								盲目
+的								的
+崇拜								崇拜
+。								。
+INSERTIONS:	1
+DELETIONS:	0
+SUBSTITUTIONS:	1
+NCHANGE:	2
+NTRUTH:	12
+NTEST:	13
+TRUE WORDS RECALL:	0.917
+TEST WORDS PRECISION:	0.846
+--./as_gold_1.utf8-------ans.txt----80
+他								他
+在								在
+那時								那時
+物質								物質
+設備								設備
+與								與
+人才								人才
+皆								皆
+不								不
+完備								完備
+的								的
+情況							      |	情況下
+下							      <
+，								，
+INSERTIONS:	0
+DELETIONS:	1
+SUBSTITUTIONS:	1
+NCHANGE:	2
+NTRUTH:	14
+NTEST:	13
+TRUE WORDS RECALL:	0.857
+TEST WORDS PRECISION:	0.923
+--./as_gold_1.utf8-------ans.txt----81
+挑起								挑起
+中研院								中研院
+提倡							      |	提
+學術							      |	倡學術
+的								的
+艱鉅								艱鉅
+任務								任務
+，								，
+INSERTIONS:	0
+DELETIONS:	0
+SUBSTITUTIONS:	2
+NCHANGE:	2
+NTRUTH:	8
+NTEST:	8
+TRUE WORDS RECALL:	0.750
+TEST WORDS PRECISION:	0.750
+--./as_gold_1.utf8-------ans.txt----82
+但是							      |	但
+							      >	是
+滿懷								滿懷
+信心								信心
+地								地
+舉								舉
+了								了
+芝加哥								芝加哥
+大學								大學
+與								與
+約翰								約翰
+霍浦金斯							      |	霍
+							      >	浦金斯
+大學								大學
+這								這
+兩								兩
+所							      |	所以
+以							      |	研究與
+研究								研究
+與							      |	院為
+研究院							      <
+為							      <
+中心								中心
+的								的
+新式								新式
+大學								大學
+的								的
+創校							      |	創
+							      >	校
+過程								過程
+為							      |	為例
+例							      <
+，								，
+INSERTIONS:	3
+DELETIONS:	3
+SUBSTITUTIONS:	7
+NCHANGE:	13
+NTRUTH:	30
+NTEST:	30
+TRUE WORDS RECALL:	0.667
+TEST WORDS PRECISION:	0.667
+--./as_gold_1.utf8-------ans.txt----83
+說明							      |	說
+他們							      |	明
+怎麼樣							      |	他們怎麼
+							      >	樣
+在								在
+充裕								充裕
+的								的
+私家								私家
+基金								基金
+的								的
+支持								支持
+與								與
+富有							      |	富
+理想							      |	有理想
+的								的
+校長								校長
+的								的
+全權								全權
+計畫							      |	計畫下
+下							      <
+，								，
+INSERTIONS:	1
+DELETIONS:	1
+SUBSTITUTIONS:	6
+NCHANGE:	8
+NTRUTH:	20
+NTEST:	20
+TRUE WORDS RECALL:	0.650
+TEST WORDS PRECISION:	0.650
+--./as_gold_1.utf8-------ans.txt----84
+能夠								能夠
+在								在
+開學								開學
+的								的
+第一							      |	第
+天							      |	一天
+，								，
+INSERTIONS:	0
+DELETIONS:	0
+SUBSTITUTIONS:	2
+NCHANGE:	2
+NTRUTH:	7
+NTEST:	7
+TRUE WORDS RECALL:	0.714
+TEST WORDS PRECISION:	0.714
+--./as_gold_1.utf8-------ans.txt----85
+便								便
+人才								人才
+延攬								延攬
+齊備								齊備
+，								，
+INSERTIONS:	0
+DELETIONS:	0
+SUBSTITUTIONS:	0
+NCHANGE:	0
+NTRUTH:	5
+NTEST:	5
+TRUE WORDS RECALL:	1.000
+TEST WORDS PRECISION:	1.000
+--./as_gold_1.utf8-------ans.txt----86
+設備								設備
+購置								購置
+完全								完全
+，								，
+INSERTIONS:	0
+DELETIONS:	0
+SUBSTITUTIONS:	0
+NCHANGE:	0
+NTRUTH:	4
+NTEST:	4
+TRUE WORDS RECALL:	1.000
+TEST WORDS PRECISION:	1.000
+--./as_gold_1.utf8-------ans.txt----87
+不但								不但
+震撼								震撼
+了								了
+全								全
+世界								世界
+，								，
+INSERTIONS:	0
+DELETIONS:	0
+SUBSTITUTIONS:	0
+NCHANGE:	0
+NTRUTH:	6
+NTEST:	6
+TRUE WORDS RECALL:	1.000
+TEST WORDS PRECISION:	1.000
+--./as_gold_1.utf8-------ans.txt----88
+後來								後來
+也								也
+轉變								轉變
+了								了
+整								整
+個								個
+美國								美國
+的							      |	的學術
+學術							      <
+風氣								風氣
+。								。
+INSERTIONS:	0
+DELETIONS:	1
+SUBSTITUTIONS:	1
+NCHANGE:	2
+NTRUTH:	11
+NTEST:	10
+TRUE WORDS RECALL:	0.818
+TEST WORDS PRECISION:	0.900
+--./as_gold_1.utf8-------ans.txt----89
+他								他
+那時								那時
+非常								非常
+樂觀								樂觀
+的								的
+相信							      |	相
+							      >	信
+以								以
+一								一
+個								個
+私家								私家
+基金								基金
+、								、
+一								一
+個								個
+人								人
+所								所
+能								能
+做到								做到
+的								的
+，								，
+INSERTIONS:	1
+DELETIONS:	0
+SUBSTITUTIONS:	1
+NCHANGE:	2
+NTRUTH:	20
+NTEST:	21
+TRUE WORDS RECALL:	0.950
+TEST WORDS PRECISION:	0.905
+--./as_gold_1.utf8-------ans.txt----90
+國家								國家
+當然								當然
+也								也
+可以							      |	可
+							      >	以
+做到								做到
+。								。
+INSERTIONS:	1
+DELETIONS:	0
+SUBSTITUTIONS:	1
+NCHANGE:	2
+NTRUTH:	6
+NTEST:	7
+TRUE WORDS RECALL:	0.833
+TEST WORDS PRECISION:	0.714
+--./as_gold_1.utf8-------ans.txt----91
+最後							      |	最
+							      >	後
+他								他
+以								以
+下面								下面
+的								的
+一								一
+段								段
+話								話
+結束								結束
+了								了
+他								他
+當天								當天
+的								的
+致詞								致詞
+：								：
+INSERTIONS:	1
+DELETIONS:	0
+SUBSTITUTIONS:	1
+NCHANGE:	2
+NTRUTH:	15
+NTEST:	16
+TRUE WORDS RECALL:	0.933
+TEST WORDS PRECISION:	0.875
+--./as_gold_1.utf8-------ans.txt----92
+「							      |	「去年
+去年							      <
+吳大猷								吳大猷
+先生								先生
+回來								回來
+教								教
+了								了
+四								四
+個							      |	個月
+月							      |	的書
+的							      <
+書							      <
+，								，
+INSERTIONS:	0
+DELETIONS:	3
+SUBSTITUTIONS:	3
+NCHANGE:	6
+NTRUTH:	13
+NTEST:	10
+TRUE WORDS RECALL:	0.538
+TEST WORDS PRECISION:	0.700
+--./as_gold_1.utf8-------ans.txt----93
+寫								寫
+了								了
+一								一
+封							      |	封長
+長							      <
+信								信
+給								給
+我							      |	我說
+說							      <
+，								，
+INSERTIONS:	0
+DELETIONS:	2
+SUBSTITUTIONS:	2
+NCHANGE:	4
+NTRUTH:	10
+NTEST:	8
+TRUE WORDS RECALL:	0.600
+TEST WORDS PRECISION:	0.750
+--./as_gold_1.utf8-------ans.txt----94
+台灣								台灣
+大學								大學
+學生								學生
+，								，
+INSERTIONS:	0
+DELETIONS:	0
+SUBSTITUTIONS:	0
+NCHANGE:	0
+NTRUTH:	4
+NTEST:	4
+TRUE WORDS RECALL:	1.000
+TEST WORDS PRECISION:	1.000
+--./as_gold_1.utf8-------ans.txt----95
+尤其								尤其
+是								是
+上							      |	上他
+他							      |	的課
+的								的
+課							      |	學生真
+的							      <
+學生							      <
+真							      <
+是								是
+可愛								可愛
+。								。
+INSERTIONS:	0
+DELETIONS:	3
+SUBSTITUTIONS:	3
+NCHANGE:	6
+NTRUTH:	12
+NTEST:	9
+TRUE WORDS RECALL:	0.500
+TEST WORDS PRECISION:	0.667
+--./as_gold_1.utf8-------ans.txt----96
+在								在
+他								他
+教書								教書
+的								的
+四								四
+個							      |	個月
+月							      <
+中								中
+，								，
+INSERTIONS:	0
+DELETIONS:	1
+SUBSTITUTIONS:	1
+NCHANGE:	2
+NTRUTH:	9
+NTEST:	8
+TRUE WORDS RECALL:	0.778
+TEST WORDS PRECISION:	0.875
+--./as_gold_1.utf8-------ans.txt----97
+碰上							      |	碰
+							      >	上
+一								一
+個							      |	個月
+月							      <
+放								放
+寒假								寒假
+，								，
+INSERTIONS:	1
+DELETIONS:	1
+SUBSTITUTIONS:	2
+NCHANGE:	4
+NTRUTH:	7
+NTEST:	7
+TRUE WORDS RECALL:	0.571
+TEST WORDS PRECISION:	0.571
+--./as_gold_1.utf8-------ans.txt----98
+吳								吳
+先生								先生
+問								問
+學生								學生
+願意							      |	願
+							      >	意
+不								不
+放								放
+寒假								寒假
+嗎								嗎
+？								？
+INSERTIONS:	1
+DELETIONS:	0
+SUBSTITUTIONS:	1
+NCHANGE:	2
+NTRUTH:	10
+NTEST:	11
+TRUE WORDS RECALL:	0.900
+TEST WORDS PRECISION:	0.818
+--./as_gold_1.utf8-------ans.txt----99
+學生								學生
+們								們
+不僅								不僅
+是								是
+願意								願意
+，								，
+INSERTIONS:	0
+DELETIONS:	0
+SUBSTITUTIONS:	0
+NCHANGE:	0
+NTRUTH:	6
+NTEST:	6
+TRUE WORDS RECALL:	1.000
+TEST WORDS PRECISION:	1.000
+--./as_gold_1.utf8-------ans.txt----100
+因為							      |	因
+沒有							      |	為
+別							      |	沒
+的							      |	有別
+課							      |	的課
+，								，
+INSERTIONS:	0
+DELETIONS:	0
+SUBSTITUTIONS:	5
+NCHANGE:	5
+NTRUTH:	6
+NTEST:	6
+TRUE WORDS RECALL:	0.167
+TEST WORDS PRECISION:	0.167
+=== SUMMARY:
+=== TOTAL INSERTIONS:	41
+=== TOTAL DELETIONS:	73
+=== TOTAL SUBSTITUTIONS:	158
+=== TOTAL NCHANGE:	272
+=== TOTAL TRUE WORD COUNT:	1005
+=== TOTAL TEST WORD COUNT:	973
+=== TOTAL TRUE WORDS RECALL:	0.770
+=== TOTAL TEST WORDS PRECISION:	0.795
+=== F MEASURE:	0.783
+=== OOV Rate:	1.000
+=== OOV Recall Rate:	0.770
+=== IV Recall Rate:	--
+###	ans.txt	41	73	158	272	1005	973	0.770	0.795	0.783	1.000	0.770	--

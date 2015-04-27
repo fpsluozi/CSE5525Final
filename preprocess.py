@@ -16,7 +16,7 @@ def train_preprocess():
 		trainLine = []
 
 		for character in line.decode('utf-8'):
-			if(character==' ' or character=='\n' or character==u'\ufeff'):
+			if(character==' ' or character=='\n' or character==u'\ufeff' or character==u'\u0020'):
 				start = True
 				continue
 			if(start is True):

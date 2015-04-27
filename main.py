@@ -1,6 +1,7 @@
 import numpy
 import preprocess
 import math
+import sys
 
 data= preprocess.train_preprocess()
 charToIntDict=preprocess.test_preprocess()
@@ -13,9 +14,9 @@ lamb = numpy.zeros((len(charToInt), 2, 2))
 for x in range(2):
 	for y in range(2):
 		for z in range(len(charToInt)):
-			lamb[z][x][y] = 0.0
-teta=1
-alfa=0.1
+			lamb[z][x][y] = 1.0
+teta=10
+alfa=0.001
 alpha = [];
 beta = [];
 
@@ -30,19 +31,19 @@ def get_alpha_beta():
 		sen_b.append((0.0, 1.0))
 		for i in xrange(l-1):
 			ci = charToInt.get(sentence[i][0]);
-			na_0 = sen_a[i][0]*math.exp(lamb[ci][0][0]) + sen_a[i][1]*math.exp(lamb[ci][1][0]);
-			na_1= sen_a[i][0]*math.exp(lamb[ci][0][1]) + sen_a[i][1]*math.exp(lamb[ci][1][1]);
+			na_0 = float(sen_a[i][0]*math.exp(lamb[ci][0][0])) + float(sen_a[i][1]*math.exp(lamb[ci][1][0]));
+			na_1 = float(sen_a[i][0]*math.exp(lamb[ci][0][1])) + float(sen_a[i][1]*math.exp(lamb[ci][1][1]));
 			sen_a.append((na_0, na_1));
 			
 			ci = charToInt.get(sentence[-i-1][0]);
-			nb_0 = sen_b[0][0]*math.exp(lamb[ci][0][0]) + sen_b[0][1]*math.exp(lamb[ci][0][1]);
-			nb_1 = sen_b[0][0]*math.exp(lamb[ci][1][0]) + sen_b[0][1]*math.exp(lamb[ci][1][1]);
+			nb_0 = float(sen_b[0][0]*math.exp(lamb[ci][0][0])) + float(sen_b[0][1]*math.exp(lamb[ci][0][1]));
+			nb_1 = float(sen_b[0][0]*math.exp(lamb[ci][1][0])) + float(sen_b[0][1]*math.exp(lamb[ci][1][1]));
 
 			sen_b.insert(0, (nb_0, nb_1))
 
 		alpha.append(sen_a);
 		beta.append(sen_b);
-	print("alpha_beta done")
+	#print("alpha_beta done")
 	####return alpha, beta
 
 
@@ -55,16 +56,18 @@ def e_f_train():
 			char_ind = charToInt.get(key)
 			tag_prev = sentence[x-1][1]
 			tag = value
-			z0 = alpha[sent_ind][-1][0] + alpha[sent_ind][-1][1]
+			z0 = float(beta[sent_ind][0][0]) + float(beta[sent_ind][0][1])
+			if z0 == 0.0:
+				z0 = 0.000000000000000000000000000001
 
-			e[char_ind][0][0] += (alpha[sent_ind][x-1][0] * beta[sent_ind][x][0] * math.exp(lamb[char_ind][0][0]))/ z0
-			e[char_ind][0][1] += (alpha[sent_ind][x-1][0] * beta[sent_ind][x][1] * math.exp(lamb[char_ind][0][1]))/ z0
-			e[char_ind][1][0] += (alpha[sent_ind][x-1][1] * beta[sent_ind][x][0] * math.exp(lamb[char_ind][1][0]))/ z0
-			e[char_ind][1][1] += (alpha[sent_ind][x-1][1] * beta[sent_ind][x][1] * math.exp(lamb[char_ind][1][1]))/ z0
+			e[char_ind][0][0] += float(alpha[sent_ind][x-1][0] * beta[sent_ind][x][0] * math.exp(lamb[char_ind][0][0]))/ z0
+			e[char_ind][0][1] += float(alpha[sent_ind][x-1][0] * beta[sent_ind][x][1] * math.exp(lamb[char_ind][0][1]))/ z0
+			e[char_ind][1][0] += float(alpha[sent_ind][x-1][1] * beta[sent_ind][x][0] * math.exp(lamb[char_ind][1][0]))/ z0
+			e[char_ind][1][1] += float(alpha[sent_ind][x-1][1] * beta[sent_ind][x][1] * math.exp(lamb[char_ind][1][1]))/ z0
 			
 			f[char_ind][tag_prev][tag] += 1
 		
-	print("ef done")
+	#print("ef done")
 	####return e,f
 
 def SGD():
@@ -72,9 +75,9 @@ def SGD():
 	for each_char in range(len(lamb)):
 		for x in range(0,2):
 			for y in range(0,2):
-				delta_temp=f[each_char][x][y]-e[each_char][x][y]-lamb[each_char][x][y]/teta
-				lamb[each_char][x][y]=lamb[each_char][x][y]+(alfa*delta_temp)
-	print("SGD done")
+				delta_temp = float(f[each_char][x][y]) - float(e[each_char][x][y]) - float(lamb[each_char][x][y]/teta)
+				lamb[each_char][x][y]= float(lamb[each_char][x][y]) + float(alfa*delta_temp)
+	#print("SGD done")
 	# return lamb
 
 def viterbi(observes, probTable, charToInt):
@@ -106,14 +109,14 @@ def viterbi(observes, probTable, charToInt):
 
 
 
-print data
+#print data
 
-for x in range(2):
+for x in range(150):
 	get_alpha_beta()
 	e_f_train()
 	SGD()
-	print alpha
-	print beta
+	# print alpha
+	# print beta
 	alpha = list();
 	beta = list();
 
@@ -127,29 +130,32 @@ for x in f:
 	print x
 print
 """
-
+"""
 print "lambda:"
 for x in lamb:
 	print x
 print 
+"""
 
-
+test_data = charToIntDict['testData']
 
 ans = list()
 """for sent in charToIntDict['testData']:
 	if len(sent) > 0:
 		ans.append(viterbi(sent, lamb, charToInt))
 """
-print charToIntDict['testData'][0]
-ans.append(viterbi(charToIntDict['testData'][0], lamb, charToInt))
-ans.append(viterbi(charToIntDict['testData'][1], lamb, charToInt))
-ans.append(viterbi(charToIntDict['testData'][2], lamb, charToInt))
-ans.append(viterbi(charToIntDict['testData'][3], lamb, charToInt))
-ans.append(viterbi(charToIntDict['testData'][4], lamb, charToInt))
-ans.append(viterbi(charToIntDict['testData'][5], lamb, charToInt))
-
-print "Paths"
-print ans
+##print charToIntDict['testData'][0]
+for x in test_data:
+	ans.append(viterbi(x, lamb, charToInt))
 
 
+#print "Paths"
+for sent_ind in range(len(ans)):
+	sys.stdout.write(test_data[sent_ind][0].encode('UTF-8'))
+	for i in range(1, len(test_data[sent_ind])):
+		if ans[sent_ind][i] == 0:
+			sys.stdout.write(test_data[sent_ind][i].encode('UTF-8'))
+		else:
+			sys.stdout.write(' '+test_data[sent_ind][i].encode('UTF-8'))
+	print
 
