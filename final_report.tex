@@ -31,7 +31,7 @@
 \end{abstract}
 
 \section{Introduction}
-\noindent This paper is to demonstrate our study of building a Chinese word segmenter. Our system relies on a Conditional Random Filed (CRF) model, which makes binary decision labels on each character whether or not it should be segmented. Then we utilize Stochastic Gradient Descent as our training method to find the optimal parameters ($\alpha$ and $\beta$), which we train using the backward-forward algorithm to construct the probability table. Given the probability table, we eventually decode the character sequences by Viterbi's Algorithm for the most probable label sequence. Most of our algorithms are application following the tutorial by Charles Sutton and Andrew McCallum published in 2010~\cite{basicmethod}.
+\noindent This paper is to demonstrate our study of building a Chinese word segmenter. Our system relies on a Conditional Random Filed (CRF) model, which makes binary decision labels on each character whether or not it should be segmented. Then we utilize Stochastic Gradient Descent as our training method to find the optimal parameters ($\alpha$ and $\beta$), which we train using the backward-forward algorithm to construct the probability table. Given the probability table, we eventually decode the character sequences by Viterbi's Algorithm for the most probable label sequence. Most of our algorithms are applications following the tutorial by Charles Sutton and Andrew McCallum published in 2010~\cite{basicmethod}.
 
 \section{Approaches}
 \noindent In this section, we lay down the methodology of this experiment, introducing our statistic models, algorithms, and test datasets.
@@ -104,15 +104,15 @@ At last, as shown in equation~\ref{eq:partial_prob} we can make use of $\alpha$ 
      Z_{\mathbf{o}} = \beta(1, 0) + \beta(1, 1)
 \end{equation}
 
-Now, we are ready to implement Stochastic Gradient Descent (SGD) algorithm using the derivatives. For each parameter $\lambda_k$, after computing the derivative of the log-likelihood function, modification method of $\lambda_k$ is shown in following equation, since our goal is to find the global maximum instead of minimum, so we use addition here.
+Now, we are ready to implement Stochastic Gradient Descent (SGD) algorithm using the derivatives. For each parameter $\lambda_k$, after computing the derivative of the log-likelihood function, modification method of $\lambda_k$ is shown in following equation. Notice since our goal is to find the global maximum instead of minimum, we use addition here.
 \begin{equation} \label{eq:sgd_update}
-    \lambda_k = \lambda_k + \theta \frac{\partial L}{\partial \lambda_k}
+    \lambda_k \leftarrow \lambda_k + \theta \frac{\partial L}{\partial \lambda_k}
 \end{equation}
 
 For the SGD, the learning rate $\theta$ can exert important influence on the final result. If learning rate $\theta$ is very small it would take so long time to change $\lambda$ to the proper values. If learning rate $\theta$ is too large, it will make the model unable to get converged. Actually, it will make the likelihood function even get a worse result.
 
 \subsection{Decoding}
-\noindent We implement Viterbi Algorithm to do decoding, which makes use of the previous states and corresponding $\lambda$ values for a given triples using equation~\ref{eq:viterbi1}. In the equation, $V(t, s)$ represent the probability of a partial labeling ending at position t with a label s, and we set $V(1, 1) = 1$ and $V(1, 0) = 0$, since the first character must be a beginning of a word.
+\noindent We implement Viterbi Algorithm to for decoding, which makes use of the states and corresponding $\lambda$ values for a given triples using equation~\ref{eq:viterbi1}. In the equation, $V(t, s)$ represent the probability of a partial labeling ending at position t with a label s, and we set $V(1, 1) = 1$ and $V(1, 0) = 0$, since the first character must be a beginning of a word.
 \begin{equation} \label{eq:viterbi1}
 V(t, s) = \left\{ \begin{array}{lc}
 \max_{s'}( V(t-1, s') \exp \left( \sum_k \lambda_k f_k(s', s, o_t) \right) ) & t>1 \\
@@ -162,50 +162,36 @@ Stanford segmenter: & \\
 \noindent So far, we are only being able to detect manually when the parameters returned by SGD. We have only to manually control the number of loops running the regression process. Therefore, it's necessary to introduce some automatic threshold, which depends on the size of the test input, to determine when the parameter $\lambda_k$ converges.
 
 \subsection{Unigram before bigram}
-\noindent In our experiment, we only focus on bigrams, which include the previous and current states and the current observation as a whole clique. We may introduce unigram into the parameter lambda for additional features, as well as a back-off factor for unseen words in testing data.
+\noindent In our experiment, we only focus on bigrams, which include the previous and current states and the current observation as a whole clique. We may introduce unigram into the parameter $\lambda_k$ for additional features, as well as a back-off factor for unseen words in testing data.
 
 \subsection{More precise container}
 \noindent We use Python's default float type for the precision calculation, which in some cases can result in underflow as probabilities can be extremely low. We may replace float with numpy's double type for a better precision.
 
 \section{Conclusion}
-\noindent In this report, we have traced our attempt on substantiating current methods on the practice of Chinese word segmentation from scratch. First we initialize the experiment with Conditional Random Field to assign binary labels on each input sentence to decide the cuts for segmentation. Treating each sentence as a feature, we then train the model with Stochastic Gradient Descent and the backward-forward algorithm to optimize the parameters of the features. Eventually, we decode the most probable segmentation sequence using Viterbi's. 
+\noindent In this report, we have traced our attempt on substantiating current methods on the practice of Chinese word segmentation from scratch. First we initialize the experiment with Conditional Random Field to assign binary labels on each input sentence to decide the cuts for segmentation. Treating each sentence as a feature, we then train the model with Stochastic Gradient Descent and the backward-forward algorithm to optimize the parameters of the features. Eventually, we decode the most probable segmentation sequence using Viterbi's. Although the current result with the optimal configuration is far from perfect, it shows that our method still has potential into better performance in future. 
 
 \section{Acknowledgment}
 \noindent We would like to thank Prof. Eric Fosler-Lussier for his teachings throughout the semester offering us the opportunity to furthermore explore the knowledge in NLP.
 
 \begin{thebibliography}{99}
 
-\bibitem{crf}John D. Lafferty, Andrew McCallum , and Fernando C. N. Pereira:
-\emph{Conditional Random Fields: Probabilistic Models for Segmenting and Labeling Sequence Data} 
-Proceedings of the Eighteenth International Conference on Machine Learning, p.282-289~(2001)
 
 \bibitem{basicmethod} Charles Sutton and Andrew McCallum:
 \emph{An Introduction to Conditional Random Fields}
 Foundations and Trends in Machine Learning (FnT ML). ~(2010)
 
-\bibitem{biblo0}Fuchun Peng, Fangfang Feng, and Andrew McCallum:
-\emph{Chinese segmentation and new word detectionusing conditional random fields} 
-In Proc. of COLING. ~(2004)
+\bibitem{crf}John D. Lafferty, Andrew McCallum , and Fernando C. N. Pereira:
+\emph{Conditional Random Fields: Probabilistic Models for Segmenting and Labeling Sequence Data} 
+Proceedings of the Eighteenth International Conference on Machine Learning, p.282-289~(2001)
 
-\bibitem{biblo1} Mengqiu Wang, Rob Voigt, and Christopher D.~Manning:
-\emph{Two Knives Cut Better Than One: Chinese Word Segmentation with Dual Decomposition},
-In Proceedings of the 52nd Annual Meeting of the Association for Computational Linguistics (ACL~2014): Short Papers.~(2014)
+\bibitem{biblo0}Fuchun Peng, Fangfang Feng, and Andrew McCallum:
+\emph{Chinese segmentation and new word detection using conditional random fields} 
+In Proc. of COLING. ~(2004)
 
 \bibitem{biblo2} Pi-Chuan Chang, Michel Galley, and Chris Manning:
 \emph{Optimizing Chinese Word Segmentation for Machine Translation Performance},
 In ACL Workshop on Statistical Machine Translation.~(2008)
 
-\bibitem{biblo3} XinhaoWang, Xiaojun Lin, Dianhai Yu, Hao Tian, and XihongWu:
-\emph{Chinese word segmentation with maximum entropy and n-gram language model},
-In Proceedings of the fifth SIGHAN workshop on Chinese language Processing.~(2006)
-
-\bibitem{biblo4} Zhenxing Wang, Changning Huang, and Jingbo Zhu:
-\emph{The Character-based CRF Segmenter of MSRA\&NEU for the 4th Bakeoff},
-Institute of Computer Software and Theory, Northeastern University,Shenyang, China, 110004, Microsoft Research Asia, Zhichun Road, Haidian District, Beijing, China, 100080.
-
-\bibitem{biblo5} Nianwen Xue:
-\emph{The Association for Computational Linguistics and Chinese Language Processing Chinese word segmentation as character tagging},
-Computational Linguistics and Chinese Language Processing Vol.8, No.1, pp.29-48.~(2003)
 
 \bibitem{bakeoff_data} Second International Chinese Word Segmentation Bakeoff Data. (n.d.). \\
 \url{http://sighan.cs.uchicago.edu/bakeoff2005/}
