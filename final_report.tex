@@ -44,18 +44,19 @@ Original: 服务品质 \newline
 \indent Labeled sequence: (服, 1) (务, 0) (品, 1) (质, 0)
 \end{CJK*}
 \subsection{Conditional Random Field (CRF)}
-\noindent Introduced by Lafferty et al. (2001), Conditional Random Field is a statistical framework that helps build a discriminative model to segment and label sequential data. Later CRF was adapted for Chinese segmentation by Peng et al. (2004)~\cite{biblo0} and Chang et al. (2008)~\cite{biblo2} as a highly anticipated tool for such tasks. 
-
+\noindent Introduced by Lafferty et al. (2001)~\cite{crf}, Conditional Random Field is a statistical framework that helps build a discriminative model to segment and label sequential data. Later CRF was adapted for Chinese segmentation by Peng et al. (2004)~\cite{biblo0} and Chang et al. (2008)~\cite{biblo2} as a highly anticipated tool for such tasks. \newline
+\indent In the big picture, we acquire the conditional log likelihood $L$ of a training set which contains N instances, for the entire source sequence set \textbf{s}, and observation sequence set \textbf{o}:
 \begin{equation} \label{eq:log_likelihood}
     L = \sum_{n=1}^N \log(P( \mathbf{s}^{(n)} | \mathbf{o}^{(n)} ))
 \end{equation}
-
+\indent For each sequence pair s and o, we acquire the likelihood for all K feature functions $f_k$, along with the weights $\lambda_k$. At position $t$, feature function $f_k$ takes the arguments of the current state $s_t$, the previous state $s_{t-1}$ and the current observation $o_t$. $\lambda_k$ serves as the parameter of the CRF model.
 \begin{equation} \label{eq:crf_likelihood}
-    P(\mathbf{s}|\mathbf{o}) = \frac{1}{Z_{\mathbf{o}}} \exp \left( \sum_{t=1}^{T} \sum_{k} \lambda_k f_k(s_{t-1}, s_t, o_t) \right)
+    P(\mathbf{s}|\mathbf{o}) = \frac{1}{Z_{\mathbf{o}}} \exp \left( \sum_{t=1}^{T} \sum_{k=1}^K \lambda_k f_k(s_{t-1}, s_t, o_t) \right)
 \end{equation}
+\indent In the last setup, in addition to substituting~\ref{eq:crf_likelihood} into~\ref{eq:log_likelihood}, we have to consider overfitting, due to the fact that often the number of $\lambda$s is very large. To avoid overfitting , we need to hence place in the penalty determined by an arbitrary regularization factor $\sigma$. Eventually, our log likelihood function with penalty becomes:
 
 \begin{equation} \label{eq:crf_log}
-    L = \sum_{n=1}^{N} \frac{1}{Z_{\mathbf{o}^{(n)}}} \exp \left( \sum_{t=1}^{T} \sum_{k} \lambda_k f_k (s_{t-1}, s_t, o^{(n)}_t)\right) - \sum_{k} \frac{\lambda_k^2}{2\sigma}
+    L = \sum_{n=1}^{N} \frac{1}{Z_{\mathbf{o}^{(n)}}} \exp \left( \sum_{t=1}^{T} \sum_{k=1}^K \lambda_k f_k (s_{t-1}, s_t, o^{(n)}_t)\right) - \sum_{k=1}^K \frac{\lambda_k^2}{\sigma}
 \end{equation}
 \subsection{Stochastic Gradient Descent (SGD)}
 \noindent Stochastic Gradient Descent is a simple yet very efficient approach to discriminative learning of linear classifiers under loss functions. The objective loss function often has the form of a sum:
@@ -69,7 +70,7 @@ When used to minimize the above function, a standard gradient descent method wou
 \end{equation}
 
 \subsection{Test Data}
-\noindent We use Traditional Chinese corpora from Academia Sinica, Taiwanwhich contains 708,953 sentences with 5,449,698 words and 8,368,050 characters~\cite{bakeoff_data} . It is the largest open-source corpora we can find and includes the most comprehensive Chinese text data. The corpora provides us segmented sentences as our training data and unsegmented sentence as our test data.
+\noindent We use Traditional Chinese corpora from Academia Sinica, Taiwan, which contains 708,953 sentences with 5,449,698 words and 8,368,050 characters~\cite{bakeoff_data} . It is the largest open-source corpora we can find and includes the most comprehensive Chinese text data. The corpora provides us segmented sentences as our training data and unsegmented sentence as our test data.
 
 \section{Experimental Design}
 \noindent This part of the paper will present how each segment of our program works based on the approaches as we have demonstrated in the previous section. 
@@ -173,6 +174,10 @@ Stanford segmenter: & \\
 \noindent We would like to thank Prof. Eric Fosler-Lussier for his teachings throughout the semester offering us the opportunity to furthermore explore the knowledge in NLP.
 
 \begin{thebibliography}{99}
+
+\bibitem{crf}John D. Lafferty, Andrew McCallum , and Fernando C. N. Pereira:
+\emph{Conditional Random Fields: Probabilistic Models for Segmenting and Labeling Sequence Data} 
+Proceedings of the Eighteenth International Conference on Machine Learning, p.282-289~(2001)
 
 \bibitem{basicmethod} Charles Sutton and Andrew McCallum:
 \emph{An Introduction to Conditional Random Fields}
