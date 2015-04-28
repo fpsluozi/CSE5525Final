@@ -1,0 +1,186 @@
+\documentclass[11pt]{article}
+%\usepackage{fullpage}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{hyperref}
+\usepackage{indentfirst}
+\textheight=8.5in
+\topmargin=0in
+\headheight=0in
+\headsep=0in
+\oddsidemargin=0in
+\evensidemargin=0in
+\textwidth=6in
+\linespread{1.2}
+\title {\vspace*{-2em}A Chinese Word Segmentation Experiment Using Conditional Random Field}
+\author{Kuan-Wen Lo, Yiran Luo, Dingkang Wang, Zhaoyu Duan}
+\date {\today}
+
+\begin{document}
+\numberwithin{equation}{subsection}
+
+\maketitle
+
+\begin{abstract}
+\noindent It¡¯s well known that standardly written Chinese has no space or other delimiter between words. Therefore, word segmentation becomes the first task in Chinese Text Processing, and the accuracy of Chinese word segmentation is essential to the performance of  following procedures, such as Parsing, Part-of-speech Tagging and Machine Translation.
+\end{abstract}
+
+\section{Introduction}
+\noindent Our system relies on Conditional Random Filed(CRF) model, which makes binary decision on each character whether it should be segmented. We will utilize Stochastic Gradient Descent as our training model to find the optimal parameters(alpha and beta). Then, we used the backward-forward algorithm and those optimal trained parameters to construct the probability table.  Given the probability table, we can decode the character set by Viterbi Algorithm to get the most probable path.
+
+\section{Approach}
+\subsection{Methodology}
+\subsubsection{Conditional Random Field (CRF)}
+\begin{equation} \label{eq:log_likelihood}
+    L = \sum_{n=1}^N \log(P( \mathbf{s}^{(n)} | \mathbf{o}^{(n)} ))
+\end{equation}
+
+\begin{equation} \label{eq:crf_likelihood}
+    P(\mathbf{s}|\mathbf{o}) = \frac{1}{Z_{\mathbf{o}}} \exp \left( \sum_{t=1}^{T} \sum_{k} \lambda_k f_k(s_{t-1}, s_t, o_t) \right)
+\end{equation}
+
+\begin{equation} \label{eq:crf_log}
+    L = \sum_{n=1}^{N} \frac{1}{Z_{\mathbf{o}^{(n)}}} \exp \left( \sum_{t=1}^{T} \sum_{k} \lambda_k f_k (s_{t-1}, s_t, o^{(n)}_t)\right) - \sum_{k} \frac{\lambda_k^2}{2\sigma}
+\end{equation}
+\subsubsection{Stochastic Gradient Descent (SGD)}
+\noindent Stochastic Gradient Descent is a simple yet very efficient approach to discriminative learning of linear classifiers under loss functions. The objective loss function often has the form of a sum:
+\begin{equation}
+    L(w) = \sum_{n} L_i (w)
+\end{equation} 
+
+When used to minimize the above function, a standard gradient descent method would perform the following iterations, where $\theta$ is a step size.
+\begin{equation}
+    w = w - \theta \nabla L (w)
+\end{equation}
+
+\subsection{Data}
+\noindent We use Traditional Chinese corpora from Academia Sinica, Taiwan which contains 708,953 sentences with 5,449,698 words and 8,368,050 characters. It is the largest open-source corpora we can find and includes the most comprehensive Chinese text data. The corpora provides us segmented sentences as our training data and unsegmented sentence as our test data.
+
+\section{Experimental Design}
+\subsection{Preprocessing}
+\noindent The training text is encoded in UTF-8 and it cannot be recognized by Python, so decoding the text first is necessary and all the spaces in the text are full-width in that we convert them to half-width space and delete newline characters ('\verb!\n!'). We tag each character with 1 or 0 which means whether the character is the beginning of the word. Then, we convert each sentence into a list of tuples which contain a character and a tag as our training data.
+
+\subsection{Training}
+\noindent According to our CRF Model, the conditional log-likelihood of a set of training instances as shown in equation~\ref{eq:crf_log}, and now, as shown in equation~\ref{eq:de_of_log}, we can take the partial derivative of the log-likelihood in order to maximize it. $F_k$ here is the frequency or count that the particular global feature $f_k$ appears in the training data.
+\begin{equation} \label{eq:de_of_log}
+    \frac{\partial L}{\partial \lambda_k} = \sum_{n=1}^{N} \left( F_k ( \mathbf{s}^{(n)}, \mathbf{o}^{(n)} ) - \sum_{\mathbf{s}} P( \mathbf{s} | \mathbf{o}^{(n)}) F_k ( \mathbf{s}, \mathbf{o}^{(n)} ) \right) - \frac{\lambda_k}{\sigma}
+\end{equation}
+
+After we got the expression of the partial expression, we found that the frequency term and penalty term are not hard to calculate, so we focused on how to simplify the second term $\sum_{\mathbf{s}} P( \mathbf{s} | \mathbf{o}^{(n)}) F_k ( \mathbf{s}, \mathbf{o}^{(n)} )$. If we want to compute this term directly, we need to go through every possible labeling for a given Chinese sentence, suppose that the length of the sentence is $l$, then the complexity of computing this term will be $O(l2^l)$ which is not acceptable. Therefore, we have to make it easier to computer. Equation~\ref{eq:derivative2} shows the transferred partial derivative.
+\begin{equation} \label{eq:derivative2}
+      \frac{\partial L}{\partial \lambda_k} = \sum_{n=1}^{N} \left( F_k ( \mathbf{s}^{(n)}, \mathbf{o}^{(n)} ) - \sum_t \sum_{s, s'}P(s_{t-1} = s, s_t = s' | \mathbf{o}^{(n)}) f_k(s, s', o^{(n)}_t) \right) - \frac{\lambda_k}{\sigma}
+\end{equation}
+
+Then, we need to define $\alpha$ table and $\beta$ table which borrow the ideas from backward-forward training. $\alpha(t, s)$ represents the probability of a partial labeling ending at position $t$ with label $s$, similarly, $\beta(t, s)$ represents the probability of a partial labeling starting at position $t+1$ with label $s$ at position $t$. Equation~\ref{eq:alpha} and equation~\ref{eq:beta} show how to compute the elements in these two table.
+\begin{equation} \label{eq:alpha}
+    \alpha(t, s) = \sum_{s'} \alpha(t-1, s') \exp \left( \sum_k \lambda_k f_k(s', s, o_t) \right)
+\end{equation}
+\begin{equation} \label{eq:beta}
+    \beta(t, s) = \sum_{s'} \beta(t+1, s') \exp \left( \sum_k \lambda_k f_k(s, s', o_{t+1}) \right)
+\end{equation}
+
+At last, as shown in equation~\ref{eq:partial_prob} we can make use of $\alpha$ table, $\beta$ table and current $\lambda$ values to calculate the derivatives. $Z_{\mathbf{o}}$ here represents $P(\mathbf{o})$, and we use it here fit target probability into (0, 1), and $Z_{\mathbf{o}}$ can be calculated easily by equation~\ref{eq:zo}.
+\begin{equation} \label{eq:partial_prob}
+    P(s_{t-1} = s, s_{t} = s'|\mathbf{o}) = \frac{1}{Z_{\mathbf{o}}} \alpha(t-1, s) \exp \left( \sum_k \lambda_k f_k(s, s', o_t) \right) \beta(t, s')
+\end{equation}
+\begin{equation} \label{eq:zo}
+     Z_{\mathbf{o}} = \beta(1, 0) + \beta(1, 1)
+\end{equation}
+
+Now, we are ready to implement Stochastic Gradient Descent (SGD) algorithm using the derivatives. For each parameter $\lambda_k$, after computing the derivative of the log-likelihood function, modification method of $\lambda_k$ is shown in following equation, since our goal is to find the global maximum instead of minimum, so we use addition here.
+\begin{equation} \label{eq:sgd_update}
+    \lambda_k = \lambda_k + \theta \frac{\partial L}{\partial \lambda_k}
+\end{equation}
+
+For the SGD, the learning rate $\theta$ can exert important influence on the final result. If learning rate $\theta$ is very small it would take so long time to change $\lambda$ to the proper values. If learning rate $\theta$ is too large, it will make the model unable to get converged. Actually, it will make the likelihood function even get a worse result.
+
+\subsection{Decoding}
+\noindent We implement Viterbi Algorithm to do decoding, which makes use of the previous states and corresponding $\lambda$ values for a given triples using equation~\ref{eq:viterbi1}. In the equation, $V(t, s)$ represent the probability of a partial labeling ending at position t with a label s, and we set $V(1, 1) = 1$ and $V(1, 0) = 0$, since the first character must be a beginning of a word.
+\begin{equation} \label{eq:viterbi1}
+V(t, s) = \left\{ \begin{array}{lc}
+\max_{s'}( V(t-1, s') \exp \left( \sum_k \lambda_k f_k(s', s, o_t) \right) ) & t>1 \\
+s==1 & t=1
+\end{array} \right.
+\end{equation}
+
+In addition, in order to prevent overflow, we use the log trick to normalize the updating equation. Equation~\ref{eq:viterbi2} shows the new updating rules after normalization.
+\begin{equation} \label{eq:viterbi2}
+V(t, s) = \left\{ \begin{array}{lc}
+\max_{s'}( V(t-1, s') + \sum_k \lambda_k f_k(s', s, o_t) ) & t>1 \\
+V(1,0) = -\infty,\ V(1, 1) = 0 & t=1
+\end{array} \right.
+\end{equation}
+
+\section{Experimental Results}
+\noindent We have so far tested our program with three extractions out of the AS training set, each with a random selection of 20, 200, and 1000 sentences. The best performances, shown below, are scored using the 'score' script provided along the package in bakeoff2005~\cite{bakeoff_data}:
+\begin{center}
+\begin{tabular}{ll}
+20-sentence-corpus: & \\
+\multicolumn{2}{l}{~~~~TOTAL TRUE WORDS RECALL: 0.960} \\
+\multicolumn{2}{l}{~~~~TOTAL TEST WORDS PRECISION: 0.954} \\
+\\
+200-sentence-corpus: & \\
+\multicolumn{2}{l}{~~~~TOTAL TRUE WORDS RECALL: 0.774} \\
+\multicolumn{2}{l}{~~~~TOTAL TEST WORDS PRECISION: 0.800} \\
+\\
+1000-sentence-corpus: & \\
+\multicolumn{2}{l}{~~~~TOTAL TRUE WORDS RECALL: 0.465} \\
+\multicolumn{2}{l}{~~~~TOTAL TEST WORDS PRECISION: 0.378} \\
+\end{tabular}
+\end{center}
+
+Meanwhile, we have implemented the Stanford Chinese segmenter ported into the NLTK as a comparison model of segmentation capability, and its score based upon the 200k-sentence training data and 2000-sentence test data is:
+\begin{center}
+\begin{tabular}{ll}
+Stanford segmenter: & \\
+\multicolumn{2}{l}{~~~~TOTAL TRUE WORDS RECALL: 0.946} \\
+\multicolumn{2}{l}{~~~~TOTAL TEST WORDS PRECISION: 0.951} \\
+\end{tabular}
+\end{center}
+
+\section{Analysis and Discussion}
+\noindent As is presented in the verdicts, our program is able to handle when the test case is relatively small. However, as the size of the test case increases, the inaccuracy floats along, leaving space for improvement in following aspects of the experiment.
+
+\subsection{Convergence detection}
+\noindent So far, we are only being able to detect manually when the parameters returned by SGD. We had only to manually control the number of loops running the EM process. Therefore, it¡¯s necessary to introduce some automatic threshold, which depends on the size of the test input, to determine when the parameter $\lambda$ converges.
+
+\subsection{Unigram before bigram}
+\noindent In our experiment, we only focus on bigrams, which include the previous and current states and the current observation as a whole clique. We may introduce unigram into the parameter lambda for additional features, as well as a backoff factor for unseen words in testing data.
+
+\subsection{More precise container}
+\noindent We use Python¡¯s default float type for the precision calculation, which in some cases can result in underflow as probabilities can be extremely low. We may replace float with numpy¡¯s double type for a better precision.
+
+\section{Conclusion}
+
+
+\begin{thebibliography}{99}
+\bibitem{biblo1} Mengqiu Wang, Rob Voigt, and Christopher D.~Manning:
+\emph{Two Knives Cut Better Than One: Chinese Word Segmentation with Dual Decomposition},
+In Proceedings of the 52nd Annual Meeting of the Association for Computational Linguistics (ACL~2014): Short Papers.~(2014)
+
+\bibitem{biblo2} Pi-Chuan Chang, Michel Galley, and Chris Manning:
+\emph{Optimizing Chinese Word Segmentation for Machine Translation Performance},
+In ACL Workshop on Statistical Machine Translation.~(2008)
+
+\bibitem{biblo3} XinhaoWang, Xiaojun Lin, Dianhai Yu, Hao Tian, and XihongWu:
+\emph{Chinese word segmentation with maximum entropy and n-gram language model},
+In Proceedings of the fifth SIGHAN workshop on Chinese language Processing.~(2006)
+
+\bibitem{biblo4} Zhenxing Wang, Changning Huang, and Jingbo Zhu:
+\emph{The Character-based CRF Segmenter of MSRA\&NEU for the 4th Bakeoff},
+Institute of Computer Software and Theory, Northeastern University,Shenyang, China, 110004, Microsoft Research Asia, Zhichun Road, Haidian District, Beijing, China, 100080.
+
+\bibitem{biblo5} Nianwen Xue:
+\emph{The Association for Computational Linguistics and Chinese Language Processing Chinese word segmentation as character tagging},
+Computational Linguistics and Chinese Language Processing Vol.8, No.1, pp.29-48.~(2003)
+
+\bibitem{bakeoff_data} Second International Chinese Word Segmentation Bakeoff Data. (n.d.). \\
+\url{http://sighan.cs.uchicago.edu/bakeoff2005/}
+
+
+\end{thebibliography}
+
+
+\end{document} 
