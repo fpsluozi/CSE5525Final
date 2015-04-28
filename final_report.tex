@@ -1,5 +1,7 @@
-\documentclass[11pt]{article}
-%\usepackage{fullpage}
+\documentclass[UTF8,11pt]{article}
+\usepackage{fullpage}
+\usepackage{CJKutf8}
+\AtBeginDvi{\input{zhwinfonts}}
 \usepackage{amsmath}
 \usepackage{amsfonts}
 \usepackage{graphicx}
@@ -19,20 +21,31 @@
 \date {\today}
 
 \begin{document}
+
 \numberwithin{equation}{subsection}
 
 \maketitle
 
 \begin{abstract}
-\noindent It°Øs well known that standardly written Chinese has no space or other delimiter between words. Therefore, word segmentation becomes the first task in Chinese Text Processing, and the accuracy of Chinese word segmentation is essential to the performance of  following procedures, such as Parsing, Part-of-speech Tagging and Machine Translation.
+\noindent It's well-known that the standard Chinese text has no space or other delimiter between words. Hence, word segmentation becomes the most primary task in Chinese Word Processing, and the accuracy of Chinese word segmentation is essential to the performance of following procedures, such as Parsing, Part-of-speech Tagging and Machine Translation.
 \end{abstract}
 
 \section{Introduction}
-\noindent Our system relies on Conditional Random Filed(CRF) model, which makes binary decision on each character whether it should be segmented. We will utilize Stochastic Gradient Descent as our training model to find the optimal parameters(alpha and beta). Then, we used the backward-forward algorithm and those optimal trained parameters to construct the probability table.  Given the probability table, we can decode the character set by Viterbi Algorithm to get the most probable path.
+\noindent This paper is to demonstrate our study of building a Chinese word segmenter. Our system relies on a Conditional Random Filed (CRF) model, which makes binary decision labels on each character whether or not it should be segmented. Then we utilize Stochastic Gradient Descent as our training method to find the optimal parameters ($\alpha$ and $\beta$), which we train using the backward-forward algorithm to construct the probability table. Given the probability table, we eventually decode the character sequences by Viterbi's Algorithm for the most probable label sequence. Most of our algorithms are application following the tutorial by Charles Sutton and Andrew McCallum published in 2010~\cite{basicmethod}.
 
-\section{Approach}
-\subsection{Methodology}
-\subsubsection{Conditional Random Field (CRF)}
+\section{Approaches}
+\noindent In this section, we lay down the methodology of this experiment, introducing our statistic models, algorithms, and test datasets.
+\subsection{Labeling the Segmentation}
+\noindent Since Chinese is by nature a language with few white-spaces, we use 0 and 1 on each character to mark the non-starts and the start of each properly segmented Chinese word. For example: \newline
+
+\begin{CJK*}{UTF8}{gbsn}
+Original: ÊúçÂä°ÂìÅË¥® \newline
+\indent Segmented: ÊúçÂä°\ \ ÂìÅË¥® \newline
+\indent Labeled sequence: (Êúç, 1) (Âä°, 0) (ÂìÅ, 1) (Ë¥®, 0)
+\end{CJK*}
+\subsection{Conditional Random Field (CRF)}
+\noindent Introduced by Lafferty et al. (2001), Conditional Random Field is a statistical framework that helps build a discriminative model to segment and label sequential data. Later CRF was adapted for Chinese segmentation by Peng et al. (2004)~\cite{biblo0} and Chang et al. (2008)~\cite{biblo2} as a highly anticipated tool for such tasks. 
+
 \begin{equation} \label{eq:log_likelihood}
     L = \sum_{n=1}^N \log(P( \mathbf{s}^{(n)} | \mathbf{o}^{(n)} ))
 \end{equation}
@@ -44,7 +57,7 @@
 \begin{equation} \label{eq:crf_log}
     L = \sum_{n=1}^{N} \frac{1}{Z_{\mathbf{o}^{(n)}}} \exp \left( \sum_{t=1}^{T} \sum_{k} \lambda_k f_k (s_{t-1}, s_t, o^{(n)}_t)\right) - \sum_{k} \frac{\lambda_k^2}{2\sigma}
 \end{equation}
-\subsubsection{Stochastic Gradient Descent (SGD)}
+\subsection{Stochastic Gradient Descent (SGD)}
 \noindent Stochastic Gradient Descent is a simple yet very efficient approach to discriminative learning of linear classifiers under loss functions. The objective loss function often has the form of a sum:
 \begin{equation}
     L(w) = \sum_{n} L_i (w)
@@ -55,10 +68,11 @@ When used to minimize the above function, a standard gradient descent method wou
     w = w - \theta \nabla L (w)
 \end{equation}
 
-\subsection{Data}
-\noindent We use Traditional Chinese corpora from Academia Sinica, Taiwan which contains 708,953 sentences with 5,449,698 words and 8,368,050 characters. It is the largest open-source corpora we can find and includes the most comprehensive Chinese text data. The corpora provides us segmented sentences as our training data and unsegmented sentence as our test data.
+\subsection{Test Data}
+\noindent We use Traditional Chinese corpora from Academia Sinica, Taiwanwhich contains 708,953 sentences with 5,449,698 words and 8,368,050 characters~\cite{bakeoff_data} . It is the largest open-source corpora we can find and includes the most comprehensive Chinese text data. The corpora provides us segmented sentences as our training data and unsegmented sentence as our test data.
 
 \section{Experimental Design}
+\noindent This part of the paper will present how each segment of our program works based on the approaches as we have demonstrated in the previous section. 
 \subsection{Preprocessing}
 \noindent The training text is encoded in UTF-8 and it cannot be recognized by Python, so decoding the text first is necessary and all the spaces in the text are full-width in that we convert them to half-width space and delete newline characters ('\verb!\n!'). We tag each character with 1 or 0 which means whether the character is the beginning of the word. Then, we convert each sentence into a list of tuples which contain a character and a tag as our training data.
 
@@ -144,18 +158,30 @@ Stanford segmenter: & \\
 \noindent As is presented in the verdicts, our program is able to handle when the test case is relatively small. However, as the size of the test case increases, the inaccuracy floats along, leaving space for improvement in following aspects of the experiment.
 
 \subsection{Convergence detection}
-\noindent So far, we are only being able to detect manually when the parameters returned by SGD. We had only to manually control the number of loops running the EM process. Therefore, it°Øs necessary to introduce some automatic threshold, which depends on the size of the test input, to determine when the parameter $\lambda$ converges.
+\noindent So far, we are only being able to detect manually when the parameters returned by SGD. We have only to manually control the number of loops running the regression process. Therefore, it's necessary to introduce some automatic threshold, which depends on the size of the test input, to determine when the parameter $\lambda_k$ converges.
 
 \subsection{Unigram before bigram}
-\noindent In our experiment, we only focus on bigrams, which include the previous and current states and the current observation as a whole clique. We may introduce unigram into the parameter lambda for additional features, as well as a backoff factor for unseen words in testing data.
+\noindent In our experiment, we only focus on bigrams, which include the previous and current states and the current observation as a whole clique. We may introduce unigram into the parameter lambda for additional features, as well as a back-off factor for unseen words in testing data.
 
 \subsection{More precise container}
-\noindent We use Python°Øs default float type for the precision calculation, which in some cases can result in underflow as probabilities can be extremely low. We may replace float with numpy°Øs double type for a better precision.
+\noindent We use Python's default float type for the precision calculation, which in some cases can result in underflow as probabilities can be extremely low. We may replace float with numpy's double type for a better precision.
 
 \section{Conclusion}
+\noindent In this report, we have traced our attempt on substantiating current methods on the practice of Chinese word segmentation from scratch. First we initialize the experiment with Conditional Random Field to assign binary labels on each input sentence to decide the cuts for segmentation. Treating each sentence as a feature, we then train the model with Stochastic Gradient Descent and the backward-forward algorithm to optimize the parameters of the features. Eventually, we decode the most probable segmentation sequence using Viterbi's. 
 
+\section{Acknowledgment}
+\noindent We would like to thank Prof. Eric Fosler-Lussier for his teachings throughout the semester offering us the opportunity to furthermore explore the knowledge in NLP.
 
 \begin{thebibliography}{99}
+
+\bibitem{basicmethod} Charles Sutton and Andrew McCallum:
+\emph{An Introduction to Conditional Random Fields}
+Foundations and Trends in Machine Learning (FnT ML). ~(2010)
+
+\bibitem{biblo0}Fuchun Peng, Fangfang Feng, and Andrew McCallum:
+\emph{Chinese segmentation and new word detectionusing conditional random fields} 
+In Proc. of COLING. ~(2004)
+
 \bibitem{biblo1} Mengqiu Wang, Rob Voigt, and Christopher D.~Manning:
 \emph{Two Knives Cut Better Than One: Chinese Word Segmentation with Dual Decomposition},
 In Proceedings of the 52nd Annual Meeting of the Association for Computational Linguistics (ACL~2014): Short Papers.~(2014)

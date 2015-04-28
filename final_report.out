@@ -1,0 +1,17 @@
+\BOOKMARK [1][-]{section.1}{Introduction}{}% 1
+\BOOKMARK [1][-]{section.2}{Approaches}{}% 2
+\BOOKMARK [2][-]{subsection.2.1}{Labeling the Segmentation}{section.2}% 3
+\BOOKMARK [2][-]{subsection.2.2}{Conditional Random Field \(CRF\)}{section.2}% 4
+\BOOKMARK [2][-]{subsection.2.3}{Stochastic Gradient Descent \(SGD\)}{section.2}% 5
+\BOOKMARK [2][-]{subsection.2.4}{Test Data}{section.2}% 6
+\BOOKMARK [1][-]{section.3}{Experimental Design}{}% 7
+\BOOKMARK [2][-]{subsection.3.1}{Preprocessing}{section.3}% 8
+\BOOKMARK [2][-]{subsection.3.2}{Training}{section.3}% 9
+\BOOKMARK [2][-]{subsection.3.3}{Decoding}{section.3}% 10
+\BOOKMARK [1][-]{section.4}{Experimental Results}{}% 11
+\BOOKMARK [1][-]{section.5}{Analysis and Discussion}{}% 12
+\BOOKMARK [2][-]{subsection.5.1}{Convergence detection}{section.5}% 13
+\BOOKMARK [2][-]{subsection.5.2}{Unigram before bigram}{section.5}% 14
+\BOOKMARK [2][-]{subsection.5.3}{More precise container}{section.5}% 15
+\BOOKMARK [1][-]{section.6}{Conclusion}{}% 16
+\BOOKMARK [1][-]{section.7}{Acknowledgment}{}% 17
